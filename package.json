@@ -1,0 +1,9 @@
+{
+  "name": "hotdog-pos",
+  "version": "1.0.0",
+  "description": "熱狗堡攤位點餐系統(零依賴 Node.js)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=16" },
+  "license": "MIT"
+}
