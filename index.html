@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Commentarii de Vita 🌿</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);--bg:#f6f3ea;--card:#fffdf7;--tx:#2b3a2c;--mu:#7a8576;--ln:#e4dfce;--g:#4c8a4f;--ac:#4c8a4f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161b16;--card:#1f261f;--tx:#e6ece3;--mu:#93a08f;--ln:#2e382d;--g:#6fb072;--ac:#6fb072}}
+:root[data-theme="dark"]{--bg:#161b16;--card:#1f261f;--tx:#e6ece3;--mu:#93a08f;--ln:#2e382d;--g:#6fb072;--ac:#6fb072}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+main{max-width:560px;margin:0 auto;padding:14px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px;margin-bottom:14px}
+h2{font-size:17px;margin:0 0 10px}
+.mu{color:var(--mu);font-size:13px}
+.badge,.pill{display:inline-block;padding:2px 10px;border-radius:99px;color:#fff;font-size:13px;font-weight:600;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.pill{padding:3px 14px;font-size:16px}
+.row{display:flex;align-items:center;gap:10px}
+.sp{justify-content:space-between}
+.chk{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;margin:0 0 7px;border:1px solid var(--ln);border-radius:12px;background:transparent;color:var(--tx);font:inherit;text-align:left;cursor:pointer}
+.chk .box{width:26px;height:26px;border-radius:8px;border:2px solid var(--ln);display:grid;place-items:center;flex:none;color:#fff}
+.chk.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent)}
+.chk.on .box{background:var(--ac);border-color:var(--ac)}
+.chk .mu{font-size:13px}
+.subs{margin:-2px 0 8px 22px}.chk.sub{padding:9px 12px}
+.grp{font-size:13px;color:var(--mu);margin:12px 0 6px}
+.bar{height:8px;border-radius:99px;background:var(--ln);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ac);transition:width .25s}
+textarea{width:100%;min-height:70px;border:1px solid var(--ln);border-radius:12px;background:transparent;color:var(--tx);font:inherit;padding:10px;resize:none;overflow:hidden}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.nav button{font:inherit;background:none;border:1px solid var(--ln);color:var(--tx);border-radius:10px;padding:4px 14px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.wd{text-align:center;font-size:12px;color:var(--mu)}
+.day{min-height:64px;border:1px solid var(--ln);border-radius:10px;padding:3px;background:color-mix(in srgb,var(--hc,var(--g)) calc(var(--a,0)*60%),transparent);color:var(--tx);font:inherit;font-size:11px;line-height:1.25;text-align:left;cursor:pointer;overflow:hidden;position:relative}
+.day b{font-size:13px;display:block}
+.day.today{outline:2px solid var(--ac)}
+.day.sel{box-shadow:inset 0 0 0 2px var(--ac)}
+.day .sn{display:block;color:var(--mu);overflow:hidden;max-height:2.5em}
+.day .sn.hi{color:var(--tx);font-weight:600}
+.day i{position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.day .ct{position:absolute;right:4px;bottom:2px;font-size:10px;color:var(--mu)}
+.rk{font-size:12px;margin-left:6px;border-radius:6px;padding:0 6px}
+.rk.f{background:var(--tx);color:var(--bg)}.rk.s{border:1px solid var(--tx)}.rk.m{color:var(--mu);padding:0}
+.pro{display:block;margin-top:8px;font:inherit;font-size:15px;color:var(--ac);background:none;border:1px dashed var(--ac);border-radius:10px;padding:10px 18px;cursor:pointer}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--ln);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.tab{flex:1;font:inherit;background:none;border:0;color:var(--mu);padding:10px 6px;font-size:15px;border-radius:10px;cursor:pointer}
+.tab.on{color:var(--ac);font-weight:700}
+.tab span{display:flex;align-items:center;justify-content:center;height:34px;font-size:28px;line-height:1.2}
+section{display:none}section.on{display:block}
+:root[data-pal="blue"]{--bg:#eef3fa;--card:#fbfdff;--tx:#1f2d44;--mu:#6b7a93;--ln:#d7e0ee;--g:#3f7fc4;--ac:#3f7fc4}
+:root[data-pal="black"]{--bg:#0b0b0c;--card:#171718;--tx:#ececec;--mu:#9a9a9e;--ln:#2b2b2e;--g:#c9ced6;--ac:#e2e6ec}
+:root[data-pal="gray"]{--bg:#e9eaeb;--card:#f6f6f6;--tx:#2a2d30;--mu:#737980;--ln:#d6d8da;--g:#6b7580;--ac:#4f5965}
+:root[data-pal="white"]{--bg:#fff;--card:#fff;--tx:#202124;--mu:#80868b;--ln:#e8eaed;--g:#5f8f6a;--ac:#3c6e47}
+:root[data-pal="orange"]{--bg:#fbf3e6;--card:#fffaf0;--tx:#3a2a14;--mu:#8c7a60;--ln:#ecdcc0;--g:#e08a1e;--ac:#d9780f}
+.ttl{text-align:center;padding:6px 0 14px}
+.ttl h1{font:700 28px/1.15 Georgia,"Times New Roman","Noto Serif TC",serif;margin:0;letter-spacing:.5px}
+.ttl h2{font-size:19px;margin:4px 0 2px;font-weight:600}
+.ttl .sub{font:italic 13px Georgia,"Noto Serif TC",serif;color:var(--mu)}
+select,input[type=text],input[type=password]{font:inherit;font-size:16px;color:var(--tx);background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;max-width:100%}
+.fr{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.fr label{font-size:13px;color:var(--mu);display:flex;flex-direction:column;gap:2px}
+.item{padding:10px 0;border-top:1px solid var(--ln);font-size:15px}
+.x{background:none;border:0;color:var(--mu);font-size:16px;cursor:pointer}
+.pal{font:inherit;font-size:15px;margin:0 6px 8px 0;padding:10px 16px;border:1px solid var(--ln);border-radius:99px;background:transparent;color:var(--tx);cursor:pointer}
+.pal.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 15%,transparent)}
+@media (orientation:landscape) and (max-height:520px),(min-width:900px){
+  body{padding-bottom:0}
+  main{max-width:none;padding:12px calc(112px + env(safe-area-inset-right,0px)) 12px calc(14px + env(safe-area-inset-left,0px))}
+  nav.tabs{top:0;left:auto;width:calc(98px + env(safe-area-inset-right,0px));flex-direction:column;justify-content:center;border-top:0;border-left:1px solid var(--ln);padding:6px calc(6px + env(safe-area-inset-right,0px)) 6px 6px}
+}
+
+
+
+.seg{display:flex;gap:6px;margin:0 0 12px}.seg button{flex:1;font:inherit;font-size:15px;padding:8px 4px;border:1px solid var(--ln);border-radius:99px;background:transparent;color:var(--tx);cursor:pointer}
+.seg button.on,.col3 button.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 15%,transparent);font-weight:700}
+.col3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.col3 button{font:inherit;padding:10px 4px;border:1px solid var(--ln);border-radius:14px;background:var(--card);color:var(--tx);cursor:pointer}.col3 button span{display:block;font-size:24px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:6px 4px;border-top:1px solid var(--ln);text-align:left;vertical-align:top}th{color:var(--mu);font-weight:600;border-top:0}tr.cur td{background:color-mix(in srgb,var(--ac) 14%,transparent)}
+input[type=number],input[type=time],input[type=date],input[type=url]{font:inherit;font-size:16px;color:var(--tx);background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;max-width:100%}
+input[type=color]{width:40px;height:34px;padding:0;border:1px solid var(--ln);border-radius:8px;background:none}
+.evd{position:absolute;left:3px;bottom:3px;display:flex;gap:2px}.evd em{width:6px;height:6px;border-radius:50%;display:block}
+.chipc{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.th{display:block;max-width:140px;border-radius:10px;margin-top:6px}
+details summary{cursor:pointer;font-weight:600;padding:6px 0}details ul,details ol{margin:4px 0;padding-left:20px;font-size:14px}
+a.lk{display:block;padding:12px;border:1px solid var(--ln);border-radius:12px;margin-bottom:8px;color:var(--ac);text-decoration:none;font-weight:600}
+.ttl+.seg{margin-top:0}
+.col3{grid-template-columns:repeat(4,1fr)}.col3 button{font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<section id="s_lit">
+  <div class="ttl"><h1>Liturgia Horarum</h1><h2>時程禮儀</h2><div class="sub">Opus Dei — 天主的工程</div></div>
+  <div class="card" id="head"></div>
+  <div class="card"><div class="row sp"><h2 style="margin:0">今日打卡 🌿</h2><span class="mu" id="streak"></span></div>
+    <div class="bar"><i id="pbar"></i></div><div class="mu" id="ptxt" style="margin-top:4px"></div><div id="todayList" style="margin-top:8px"></div></div>
+  <div class="card"><h2>📈 近四週</h2><div id="heat" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px"></div><div class="mu" style="margin-top:6px">顏色越深，當天完成越多</div></div>
+  <div class="card" id="badges"></div>
+</section>
+<section id="s_hea"></section>
+<section id="s_home" class="on">
+  <div class="ttl"><h1>Commentarii de Vita</h1><h2>生活紀錄</h2><div class="sub" id="pro"></div></div>
+  <div class="card"><div class="row sp"><div class="nav" style="margin:0;gap:6px"><button data-a="cm" data-m="-1">‹</button><span><select id="cy"></select> <select id="cm"></select></span><button data-a="cm" data-m="1">›</button></div>
+    <select id="flt" data-ch="flt"></select></div>
+  <div class="grid" id="calG" style="margin-top:10px"></div><div class="mu" id="legend" style="margin-top:8px"></div></div>
+  <div class="card" id="calD"></div>
+  <div class="card" id="wk"></div>
+</section>
+<section id="s_life"></section>
+<section id="s_set"><div id="setMine"></div><div id="setLit"></div></section>
+</main>
+<nav class="tabs"><button class="tab" data-a="tab" data-s="s_lit"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6.5 8.5h11"/></svg></span>日課</button><button class="tab" data-a="tab" data-s="s_hea"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-45 12 12)"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5"/><path d="M12 8.5v7"/></g></svg></span>健康</button><button class="tab on" data-a="tab" data-s="s_home"><span>🌿</span>首頁</button><button class="tab" data-a="tab" data-s="s_life"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-5 9 5M5 10v9h14v-9M9 19v-5h6v5M12 5V3"/></svg></span>生活</button><button class="tab" data-a="tab" data-s="s_set"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>設定</button></nav>
+<script>
+const DAY_MS=1000*60*60*24;
+const SEASON_GREEN="#3FA34D",SEASON_WHITE="#F5F5F0",SEASON_PURPLE="#8B5FBF",SEASON_ROSE="#E8A0B4";
+const COLOR_GOLD="#D4AF37",COLOR_CREAM="#F1E5AC",COLOR_LIGHT="#F9F6E5",COLOR_MAROON="#C41E3A",COLOR_BLUE="#4682B4",COLOR_SAINT_DEFAULT="#f0d78c";
+const CYCLE_COLORS={"甲":"#5C7FE0","乙":"#2BA7A0","丙":"#E5894F"};
+function addDays(date,days){const d=new Date(date);d.setDate(d.getDate()+days);return d}
+function stripTime(date){return new Date(date.getFullYear(),date.getMonth(),date.getDate())}
+function nextOrSameSunday(date){const d=stripTime(date);return addDays(d,(7-d.getDay())%7)}
+function prevOrSameSunday(date){const d=stripTime(date);return addDays(d,-d.getDay())}
+function sameDate(a,b){return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate()}
+function calcEaster(year){const a=year%19,b=Math.floor(year/100),c=year%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),month=Math.floor((h+l-7*m+114)/31),day=((h+l-7*m+114)%31)+1;return new Date(year,month-1,day)}
+function liturgicalDatesForYear(Y){
+  const easter=stripTime(calcEaster(Y)),christmas=new Date(Y,11,25);
+  let epiphany=null;
+  for(let day=2;day<=8;day++){const c=new Date(Y,0,day);if(c.getDay()===0){epiphany=c;break}}
+  const baptismOfLord=epiphany.getDate()>=7?addDays(epiphany,1):addDays(epiphany,7);
+  let holyFamily=null;
+  if(christmas.getDay()!==0){for(let day=26;day<=31;day++){const c=new Date(Y,11,day);if(c.getDay()===0){holyFamily=c;break}}}
+  if(!holyFamily)holyFamily=new Date(Y,11,30);
+  const advent1=nextOrSameSunday(new Date(Y,10,27));
+  return{Y,easter,christmas,epiphany,baptismOfLord,holyFamily,
+    ashWednesday:addDays(easter,-46),palmSunday:addDays(easter,-7),holyMonday:addDays(easter,-6),holyTuesday:addDays(easter,-5),holyWednesday:addDays(easter,-4),holyThursday:addDays(easter,-3),goodFriday:addDays(easter,-2),holySaturday:addDays(easter,-1),
+    ascension:addDays(easter,42),pentecost:addDays(easter,49),trinitySunday:addDays(easter,56),corpusChristi:addDays(easter,63),sacredHeart:addDays(easter,68),immaculateHeart:addDays(easter,69),
+    advent1,advent2:addDays(advent1,7),advent3:addDays(advent1,14),advent4:addDays(advent1,21),christKing:addDays(advent1,-7)}}
+function cycleLetterForLiturgicalYear(y){return["甲","乙","丙"][(((y-2023)%3)+3)%3]}
+const WEEKDAY_CH=["日","一","二","三","四","五","六"];
+function buildSolemnityList(td,Y){
+  return[
+  [td.ashWednesday,"聖灰禮儀日",SEASON_PURPLE,false],[td.palmSunday,"聖枝主日",COLOR_MAROON,false],
+  [td.holyMonday,"聖週一",SEASON_PURPLE,false],[td.holyTuesday,"聖週二",SEASON_PURPLE,false],[td.holyWednesday,"聖週三",SEASON_PURPLE,false],
+  [td.holyThursday,"吾主耶穌建立聖體聖事 聖週四",COLOR_GOLD,false],[td.goodFriday,"吾主救主耶穌受難日",COLOR_MAROON,false],
+  [addDays(td.easter,1),"復活八日第二日",COLOR_GOLD,false],[addDays(td.easter,2),"復活八日第三天",COLOR_GOLD,false],[addDays(td.easter,3),"復活八日第四天",COLOR_GOLD,false],
+  [addDays(td.easter,4),"復活八日第五天",COLOR_GOLD,false],[addDays(td.easter,5),"復活八日第六天",COLOR_GOLD,false],[addDays(td.easter,6),"復活八日第七天",COLOR_GOLD,false],
+  [td.easter,"復活節",COLOR_GOLD,false],[addDays(td.easter,7),"救主慈悲主日",COLOR_GOLD,false],[td.ascension,"耶穌升天節",COLOR_GOLD,false],
+  [td.pentecost,"聖神降臨節",COLOR_MAROON,false],[td.trinitySunday,"至聖天主聖三節",COLOR_GOLD,false],[td.corpusChristi,"基督聖體聖血節",COLOR_GOLD,false],
+  [td.sacredHeart,"耶穌聖心節",COLOR_GOLD,false],[td.immaculateHeart,"聖母無玷聖心紀念日",COLOR_BLUE,true],[td.christKing,"基督普世君王節",COLOR_GOLD,false],
+  [td.advent1,"將臨期第1主日",SEASON_PURPLE,true],[td.advent2,"將臨期第2主日",SEASON_PURPLE,true],[td.advent3,"喜樂主日",SEASON_ROSE,true],[td.advent4,"將臨期第4主日",SEASON_PURPLE,true],
+  [new Date(Y,11,17),"上智者日",SEASON_PURPLE,false],[new Date(Y,11,18),"上主天主日",SEASON_PURPLE,false],[new Date(Y,11,19),"耶瑟之根日",SEASON_PURPLE,false],
+  [new Date(Y,11,20),"達味之鑰日",SEASON_PURPLE,false],[new Date(Y,11,21),"東方旭日日",SEASON_PURPLE,false],[new Date(Y,11,22),"萬民君王日",SEASON_PURPLE,false],[new Date(Y,11,23),"厄馬奴耳日",SEASON_PURPLE,false],
+  [td.christmas,"聖誕節",COLOR_GOLD,false],[new Date(Y,11,26),"聖斯德望 首位殉道者",COLOR_MAROON,false],[new Date(Y,11,27),"聖若望 宗徒聖史",COLOR_GOLD,false],[new Date(Y,11,28),"諸聖嬰孩",COLOR_MAROON,false],
+  [new Date(Y,11,29),"聖誕八日第五天",COLOR_GOLD,false],[new Date(Y,11,30),"聖誕八日第六天",COLOR_GOLD,false],[new Date(Y,11,31),"聖誕八日第七天",COLOR_GOLD,false],
+  [new Date(Y,0,1),"天主之母聖瑪利亞節",COLOR_BLUE,false],[td.holyFamily,"聖家節",COLOR_GOLD,false],[td.epiphany,"主顯節",COLOR_GOLD,false],[td.baptismOfLord,"主受洗節",COLOR_GOLD,false]]}
+function matchSolemnity(date,td,Y){
+  const d=stripTime(date),hour=date.getHours();
+  if(sameDate(d,td.holySaturday))return hour>=18?{text:"復活前夕",color:COLOR_GOLD,saintAllowed:false}:{text:"聖週六",color:SEASON_PURPLE,saintAllowed:false};
+  if(sameDate(d,new Date(Y,11,24)))return hour>=18?{text:"主降生前夕",color:COLOR_GOLD,saintAllowed:false}:{text:"主降生前日",color:SEASON_PURPLE,saintAllowed:false};
+  for(const[fd,text,color,saintAllowed]of buildSolemnityList(td,Y)){if(fd&&sameDate(d,fd))return{text,color,saintAllowed}}
+  return null}
+function computeGenericSeasonText(date,td,Y){
+  const d=stripTime(date),weekday=WEEKDAY_CH[d.getDay()],isSunday=d.getDay()===0;
+  if(d>=td.christmas){const n=Math.round((d-td.christmas)/DAY_MS)+1;return{text:`聖誕期 · ${isSunday?"主日":"第"+n+"天"}`,color:SEASON_WHITE,seasonKind:"christmas",isSunday}}
+  const prevChristmas=new Date(Y-1,11,25);
+  if(d<td.baptismOfLord&&d>=new Date(Y,0,1)){const n=Math.round((d-prevChristmas)/DAY_MS)+1;return{text:`聖誕期 · ${isSunday?"主日":"第"+n+"天"}`,color:SEASON_WHITE,seasonKind:"christmas",isSunday}}
+  if(d>=td.ashWednesday&&d<td.easter){
+    if(d<nextOrSameSunday(td.ashWednesday))return{text:`聖灰禮儀後 · 星期${weekday}`,color:SEASON_PURPLE,seasonKind:"lent",isSunday};
+    const l1=nextOrSameSunday(td.ashWednesday),week=Math.floor((d-l1)/(7*DAY_MS))+1,rose=isSunday&&week===4;
+    return{text:isSunday?`四旬期第${week}主日`:`四旬期第${week}週 · 星期${weekday}`,color:rose?SEASON_ROSE:SEASON_PURPLE,seasonKind:"lent",isSunday}}
+  if(d>=td.easter&&d<=td.pentecost){const week=Math.floor((d-td.easter)/(7*DAY_MS))+1;return{text:isSunday?`復活期第${week}主日`:`復活期第${week}週 · 星期${weekday}`,color:SEASON_WHITE,seasonKind:"easter",isSunday}}
+  if(d>=td.advent1&&d<td.christmas){const week=Math.floor((d-td.advent1)/(7*DAY_MS))+1,rose=isSunday&&week===3;return{text:isSunday?`將臨期第${week}主日`:`將臨期第${week}週 · 星期${weekday}`,color:rose?SEASON_ROSE:SEASON_PURPLE,seasonKind:"advent",isSunday}}
+  if(d>td.baptismOfLord&&d<td.ashWednesday){const fs=nextOrSameSunday(addDays(td.baptismOfLord,1)),week=2+Math.floor((prevOrSameSunday(d)-fs)/(7*DAY_MS));return{text:isSunday?`常年期第${week}主日`:`常年期第${week}週 · 星期${weekday}`,color:SEASON_GREEN,seasonKind:"ordinary",isSunday}}
+  if(d>td.pentecost&&d<td.advent1){const week=34-Math.floor((td.christKing-prevOrSameSunday(d))/(7*DAY_MS));return{text:isSunday?`常年期第${week}主日`:`常年期第${week}週 · 星期${weekday}`,color:SEASON_GREEN,seasonKind:"ordinary",isSunday}}
+  return{text:`星期${weekday}`,color:SEASON_GREEN,seasonKind:"ordinary",isSunday}}
+/* 聖人曆（格式：月-日|名稱|等級；等級空白＝無） */
+const SAINTS={};
+`01-01|天主之母聖瑪利亞|節日
+01-02|聖巴西略及聖額我略·納祥 主教聖師|紀念日
+01-03|耶穌聖名|
+01-04|聖伊莉莎白·安·瑟頓 修女|
+01-05|聖若望·紐曼 主教|
+01-06|聖安德肋·貝塞特 會士|
+01-07|培尼亞福特·聖雷蒙 司鐸|
+01-08|聖塞維林 院長|
+01-09|聖亞德里安 院長|
+01-10|聖額我略·尼撒 主教|
+01-11|聖依拉略 教宗|
+01-12|布爾日瓦·聖瑪格麗特 貞女|
+01-13|波瓦捷·聖依拉略 主教聖師|
+01-14|聖費理斯 司鐸殉道|
+01-15|聖劉方濟 司鐸殉道|紀念日
+01-16|聖若瑟·瓦茲 司鐸|
+01-17|聖安當 院長|紀念日
+01-18|聖普莉絲加 貞女殉道|
+01-19|聖馬略及同伴 殉道|
+01-20|聖法比盎 教宗殉道|
+01-21|聖依搦斯 貞女殉道|紀念日
+01-22|聖味增爵 執事殉道|
+01-23|聖樂倫·白小滿 教友殉道|
+01-24|沙雷·聖方濟各 主教聖師|紀念日
+01-25|聖保祿宗徒歸化|慶日
+01-26|聖弟茂德及聖弟鐸 主教|紀念日
+01-27|聖安琪拉·梅里奇 貞女|
+01-28|阿奎那·聖多瑪斯 司鐸聖師 舊武潭主保|節日
+01-29|聖老楞佐·王炳 傳道員及同伴殉道|
+01-30|真福雷永明 司鐸|紀念日
+01-31|聖若望·鮑思高 司鐸|紀念日
+02-01|聖碧姬 貞女|
+02-02|獻耶穌於聖殿|慶日
+02-03|聖樂修 主教殉道|
+02-04|聖若望德布力托 司鐸殉道|
+02-05|聖佳德 貞女殉道|紀念日
+02-06|聖鄭安道、聖保祿三木及同伴 殉道|紀念日
+02-07|聖若翰·薩樂 司鐸|
+02-08|聖熱羅尼莫·艾明廉 司鐸|
+02-09|馬勞尼·聖馬榮 院長|
+02-10|聖思嘉 貞女|紀念日
+02-11|露德聖母|紀念日
+02-12|聖歐拉利亞 貞女殉道|
+02-13|聖若望·藍月旺 司鐸殉道|
+02-14|聖啟祿隱修士及聖默道 主教|紀念日
+02-15|聖高隆邦 院長|
+02-16|聖朱莉安娜 貞女殉道|
+02-17|聖母忠僕會七位會祖|
+02-18|聖馬定·吳學聖 傳道員及同伴殉道|
+02-19|聖璐琦·易貞美 貞女殉道|
+02-20|聖若望·比亞斯 司鐸|
+02-21|達米盎·聖伯多祿 主教聖師、聖保祿·劉翰佐 司鐸殉道|
+02-22|建立聖伯多祿宗座|慶日
+02-23|聖力康 主教殉道|紀念日
+02-24|特里爾·聖莫德斯圖斯 主教|
+02-25|聖雷鳴道·陳高理 主教殉道|
+02-26|亞歷山大·聖亞歷山大 主教|
+02-27|納立·聖額我略 隱修者聖師|
+02-28|聖羅曼諾 院長|
+02-29|聖馬賴 司鐸殉道|
+03-01|聖雅妮·曹桂英 寡婦殉道|
+03-02|聖依撒伯爾·安娜·拜倫 貞女|
+03-03|瑞奇·聖加大利納 貞女|
+03-04|聖加西彌祿|
+03-05|聖若望·若瑟 司鐸|
+03-06|聖加大利納·帕拉 貞女|
+03-07|聖蓓蓓及聖芬莉 殉道|紀念日
+03-08|天賜·聖若望 會士|
+03-09|羅馬·聖方濟加 善婦|
+03-10|聖若望·奧吉爾維 司鐸殉道|
+03-11|聖若瑟·張大鵬 傳道員殉道|
+03-12|保祿的·聖文生 司鐸|
+03-13|聖撒比納 殉道|
+03-14|聖瑪蒂爾達 善婦|
+03-15|馬利亞·聖路易 隱修者|
+03-16|聖儒利安 殉道|
+03-17|聖博第 主教|
+03-18|耶路撒冷·聖啟祿 主教聖師|
+03-19|大聖若瑟 聖母淨配 佳興主保|節日
+03-20|聖克勞迪婭 貞女殉道|
+03-21|聖本篤 院長|
+03-22|聖琳娜 貞女殉道|
+03-23|莫格羅韋霍·聖多利波 主教|
+03-24|聖加俾額爾總領天使|特殊紀念日
+03-25|天使報喜預報救主降生節日|節日
+03-26|達馬森·聖若望 司鐸聖師|
+03-27|聖魯培 主教|
+03-28|聖貢祿 司鐸|
+03-29|聖古斯默 殉道|
+03-30|克里馬古·聖若望 院長|
+03-31|聖本雅明 執事殉道|
+04-01|聖胡戈 主教|
+04-02|保拉·聖方濟 隱修者|
+04-03|聖理查 主教|
+04-04|聖希道 主教聖師|
+04-05|聖文生·斐瑞 司鐸|
+04-06|聖瑪莉亞·克萊門蒂娜 貞女|
+04-07|聖若翰·薩樂 司鐸|紀念日
+04-08|真福雅頌 修女|
+04-09|聖瓦爾德特魯迪 善婦|
+04-10|聖福祿 殉道|
+04-11|台灣開教紀念日|慶日
+04-12|聖儒利烏斯 教宗|
+04-13|聖瑪定 教宗殉道|
+04-14|聖伯鐸·公撒格 司鐸|
+04-15|莫洛凱·聖達米盎 司鐸|
+04-16|聖本篤·若瑟·拉布爾 精修|
+04-17|聖安南西 主教殉道|
+04-18|聖加大利納·帕拉 貞女|
+04-19|聖良九世 教宗|
+04-20|安提約基亞·聖依納爵 主教殉道|
+04-21|聖安生 主教聖師|
+04-22|聖卡耶坦 司鐸|
+04-23|聖喬治 殉道|
+04-24|西格馬林根·聖斐德理 司鐸殉道|
+04-25|聖瑪谷 聖史|慶日
+04-26|聖克萊特及聖馬策林 教宗殉道|
+04-27|聖伯鐸·尚耐 司鐸殉道|
+04-28|聖吉安娜·貝雷塔·莫拉 貞女|
+04-29|聖佳琳 貞女聖師|紀念日
+04-30|聖碧岳五世 教宗|
+05-01|聖若瑟勞工|
+05-02|聖亞大納修 主教聖師|紀念日
+05-03|聖斐理伯及聖雅各伯 宗徒|慶日
+05-04|聖馬定·若瑟 司鐸殉道|
+05-05|聖福斯定 司鐸|
+05-06|聖道明·薩維奧 精修|
+05-07|聖若翰·薩樂 司鐸|
+05-08|聖伯鐸·尚耐 司鐸殉道|
+05-09|聖巴科莫 院長|
+05-10|阿維拉·聖若望 司鐸聖師|
+05-11|聖瑪竇·路易斯 殉道|
+05-12|聖業樂及聖亞基略 殉道、聖邦康 殉道|
+05-13|法蒂瑪聖母 堂區主保|節日
+05-14|聖瑪弟亞 宗徒|慶日
+05-15|聖依西多祿 農夫主保|
+05-16|聖烏巴爾德 主教|
+05-17|聖劉文元 教友殉道|
+05-18|高雄教區開教紀念日|慶日
+05-19|聖克里斯平 會士|
+05-20|錫耶納·聖納定 司鐸|
+05-21|聖基道霍·麥哲倫及同伴 司鐸殉道|
+05-22|卡西亞·聖麗達 善婦|
+05-23|羅西·聖若望·巴蒂斯達 司鐸|
+05-24|進教之佑聖母|
+05-25|聖伯達 司鐸聖師、聖國瑞七世 教宗、帕齊·聖瑪利亞馬達勒納 貞女|
+05-26|聖斐理伯·乃立 司鐸|紀念日
+05-27|坎特伯里·聖奧斯定 主教|
+05-28|聖伯爾納 院長|
+05-29|聖保祿六世 教宗|
+05-30|聖貞德 貞女|
+05-31|聖母訪親|慶日
+06-01|聖猶斯定 殉道|紀念日
+06-02|聖才林及聖伯鐸 殉道|
+06-03|聖嘉祿·盧安江及同伴 殉道|紀念日
+06-04|卡拉喬洛·聖方濟各 司鐸|
+06-05|聖博義 主教殉道|紀念日
+06-06|聖諾博 主教|
+06-07|聖若瑟·瑪琦 司鐸|
+06-08|聖劉方濟 司鐸殉道 移安紀念日|
+06-09|聖義範 執事聖師|
+06-10|蘇格蘭·聖瑪格麗特 善婦|
+06-11|聖納博 宗徒|慶日
+06-12|聖若望·沙基 司鐸|
+06-13|帕多瓦·聖安道 司鐸聖師|紀念日
+06-14|聖梅多狄 宗主教|
+06-15|聖維多利諾 殉道|
+06-16|聖安東尼·德·路佳 司鐸殉道|
+06-17|聖亞維多 主教|
+06-18|哈塞爾布拉·聖依撒伯爾 貞女|
+06-19|聖若瑟·趙榮 司鐸殉道|
+06-20|聖西爾維略 教宗殉道|
+06-21|聖類思·公撒格 修士|紀念日
+06-22|諾林·聖若望 主教殉道、斐舍·聖保祿 移安殉道|
+06-23|聖袁在德 司鐸殉道|
+06-24|聖若翰誕辰|節日
+06-25|聖若瑟瑪利亞·埃斯克里瓦 司鐸|
+06-26|聖若望及保祿 殉道|
+06-27|亞力山大·聖啟祿 主教聖師|
+06-28|聖宜仁 主教殉道|紀念日
+06-29|聖伯鐸及聖保祿 兩位宗徒|節日
+06-30|羅馬教會初期殉道烈士|
+07-01|瑞奇·聖加大利納 貞女|
+07-02|聖穆迪利 殉道|
+07-03|聖多默 宗徒|慶日
+07-04|葡萄牙·聖麗莎|
+07-05|聖安道·沙嘉理 司鐸|
+07-06|聖瑪麗·萬瑞地 貞女殉道|
+07-07|富里·聖伯多祿 司鐸|
+07-08|聖啟祿 主教|
+07-09|中華殉道聖人|節日
+07-10|真福艾傑士主教及董博第等 司鐸殉道|
+07-11|聖本篤 院長|紀念日
+07-12|聖若望·瓜爾伯特 院長|
+07-13|聖亨利|
+07-14|聖加民 司鐸|
+07-15|聖文德 主教聖師|紀念日
+07-16|加默山聖母|
+07-17|真福任德芬 司鐸等殉道|
+07-18|聖傅德烈 主教殉道、真福郭西德 司鐸殉道|
+07-19|聖阿爾塞尼 隱修者|
+07-20|聖亞肋瑟 精修|
+07-21|聖樂倫·布林底希 司鐸聖師|
+07-22|聖瑪利亞·瑪達肋納「宗徒們的使徒」|慶日
+07-23|聖夏樂 司鐸殉道|
+07-24|真福陳昌品 傳道員及同伴殉道|
+07-25|聖雅格 宗徒|慶日
+07-26|聖雅敬及聖安納|紀念日
+07-27|聖龐加爵 殉道|
+07-28|聖伯多祿·普羅 司鐸殉道|
+07-29|聖曼德、聖瑪麗、聖拉匝祿|紀念日
+07-30|金口·聖若望 主教聖師|
+07-31|羅耀拉·聖納爵 司鐸|紀念日
+08-01|原住民族祈禱奉獻日|慶日
+08-02|聖亞豐索 主教聖師|紀念日
+08-03|聖尼各老·弗拉布 司鐸|
+08-04|聖若望·維雅內 司鐸 泰武主保|節日
+08-05|聖母大殿奉獻日|
+08-06|耶穌顯容|慶日
+08-07|聖思道教宗及同伴 殉道、聖嘉確 司鐸|
+08-08|聖道明 司鐸 舊泰武主保|節日
+08-09|聖愛米巨 主教殉道 地震主保|
+08-10|聖樂倫 執事殉道|慶日
+08-11|聖佳蘭 貞女|紀念日
+08-12|聖方濟加·尚達爾 會士|
+08-13|聖龐天教宗及聖希波律司鐸 殉道|
+08-14|聖馬希連·高比 司鐸殉道|紀念日
+08-15|聖母蒙召升天|節日
+08-16|匈牙利·聖德範|
+08-17|聖雅敬 義人|
+08-18|聖王亞納 貞女殉道|
+08-19|聖若望·歐德 司鐸|
+08-20|聖納德 院長聖師|紀念日
+08-21|聖碧岳十世 教宗|紀念日
+08-22|聖母元后|
+08-23|利馬·聖羅撒 貞女|
+08-24|聖巴爾多祿茂 宗徒|慶日
+08-25|聖路易、聖若瑟·甘樂善 司鐸|
+08-26|聖女貞德 貞女|
+08-27|聖莫尼加|紀念日
+08-28|聖奧斯定 主教聖師|紀念日
+08-29|聖若翰蒙難|紀念日
+08-30|聖菲理斯 司鐸殉道|
+08-31|聖若瑟·甘樂善 司鐸|
+09-01|聖斐理伯·本篤 司鐸|
+09-02|聖若望·巴蒂斯達·斯卡拉布里尼 主教|
+09-03|聖國瑞一世 教宗聖師|紀念日
+09-04|維泰博·聖羅撒 貞女|
+09-05|加爾各答·聖德蘭 修女|
+09-06|聖歐內西佛 宗徒弟子|
+09-07|聖高爾巴 貞女殉道|
+09-08|聖母誕辰|慶日
+09-09|聖伯多祿·克拉維 司鐸|
+09-10|托倫蒂諾·聖尼各老 司鐸|
+09-11|聖董文學 司鐸殉道|
+09-12|聖母瑪利亞聖名|
+09-13|聖金口若望 主教聖師|紀念日
+09-14|光榮聖十字架|慶日
+09-15|痛苦聖母|紀念日
+09-16|聖高尼略教宗及聖西彼廉 主教|紀念日
+09-17|賓根·聖賀德嘉院長及聖羅伯·白敏主教 兩位聖師|
+09-18|古比蒂諾·聖若瑟 司鐸|
+09-19|聖雅納略 主教殉道|
+09-20|聖安德肋·金大建及同伴 司鐸殉道|紀念日
+09-21|聖瑪竇 宗徒聖史|慶日
+09-22|聖莫里斯及同伴 殉道|
+09-23|庇特萊·聖碧岳 司鐸|紀念日
+09-24|贖虜聖母|
+09-25|聖斐爾敏 主教殉道|
+09-26|聖高斯瑪及達米盎 殉道|
+09-27|聖味增爵·保祿 司鐸|紀念日
+09-28|聖溫斯拉 殉道|
+09-29|聖彌額爾、聖加俾額爾、聖辣法耳 總領天使|慶日
+09-30|聖熱羅尼莫 司鐸聖師|紀念日
+10-01|嬰孩耶穌·聖德蘭 貞女聖師|紀念日
+10-02|護守天使|紀念日
+10-03|波爾日亞·聖方濟各 司鐸|
+10-04|亞西西·聖方濟各|
+10-05|聖傅天娜·克瓦爾斯卡 貞女|
+10-06|聖布魯諾 司鐸|
+10-07|玫瑰聖母 平和主保|節日
+10-08|聖培拉琪亞 貞女殉道|
+10-09|聖若望·亨利·紐曼 主教聖師 皈依|紀念日
+10-10|蒙特法爾科·聖佳蘭 貞女|
+10-11|聖若望二十三世 教宗|
+10-12|聖卡洛·阿庫蒂斯|紀念日
+10-13|聖愛德華 國王|
+10-14|聖加理多一世 教宗殉道|
+10-15|耶穌·聖德蘭 貞女聖師|紀念日
+10-16|亞拉高·聖瑪加利大·瑪利亞 貞女|
+10-17|安提約基亞·聖依納爵 主教殉道|紀念日
+10-18|聖路加 聖史|慶日
+10-19|聖若望·德·布雷伯夫及同伴 司鐸殉道|
+10-20|十字架·聖保祿 司鐸|
+10-21|聖烏蘇拉及同伴 貞女殉道|
+10-22|聖若望·保祿二世 教宗|
+10-23|聖若望·卡培斯特朗 司鐸|
+10-24|聖安道·柯樂仁 主教 織布主保|
+10-25|聖高比 司鐸|
+10-26|聖德米特里 殉道|
+10-27|聖文德 主教|
+10-28|聖西滿及聖猶達 宗徒|慶日
+10-29|聖納西盎 主教|
+10-30|羅德里格·聖阿方索 會士|
+10-31|聖伍爾夫 主教|
+11-01|諸聖節|節日
+11-02|追思已亡諸信者|慶日
+11-03|波羅·聖瑪爾定 會士|
+11-04|鮑榮茂·聖嘉祿 主教|紀念日
+11-05|聖依撒伯爾 善婦|
+11-06|聖良納 院長|
+11-07|聖威利布羅 主教|
+11-08|聖高德 主教|
+11-09|拉特朗大殿奉獻日|慶日
+11-10|聖良一世大教宗 教會聖師|紀念日
+11-11|圖爾·聖瑪爾定 主教|紀念日
+11-12|聖若撒法 主教殉道|紀念日
+11-13|卡布里尼·聖方濟各·沙勿略 貞女|
+11-14|聖若瑟·皮涅泰利 司鐸|
+11-15|聖亞爾伯特大 主教聖師|
+11-16|蘇格蘭·聖瑪加利大 善婦|
+11-17|匈牙利·聖依撒伯爾 修女|紀念日
+11-18|聖伯多祿及聖保祿大殿奉獻日|
+11-19|聖若瑟·邦本 教友殉道|
+11-20|聖斐理伯·乃立 司鐸|
+11-21|聖母獻於聖殿|紀念日
+11-22|聖則濟利亞 貞女殉道|紀念日
+11-23|聖克勉一世 教宗殉道|
+11-24|聖安德肋·敦琅及同伴 司鐸殉道|紀念日
+11-25|亞歷山大·聖加大利納 貞女殉道|
+11-26|聖若望·伯格曼 會士 輔祭的主保|
+11-27|奇蹟牌聖母|
+11-28|馬爾基·聖雅客 司鐸|
+11-29|聖薩圖爾尼 主教殉道|
+11-30|聖安德肋 宗徒|慶日
+12-01|福高·聖嘉祿 司鐸|
+12-02|聖畢伯良 主教殉道|
+12-03|聖方濟各·沙勿略 司鐸|紀念日
+12-04|達瑪森·聖若望 司鐸聖師|
+12-05|聖薩巴 院長|
+12-06|聖尼各老 主教|
+12-07|聖安博 主教聖師|紀念日
+12-08|聖母始胎無染原罪 武潭主保|節日
+12-09|真福富爾曼·若望·舒恩 主教|
+12-10|聖白小滿 教友殉道|
+12-11|聖達馬蘇一世 教宗|
+12-12|瓜達露佩聖母|慶日
+12-13|聖路濟亞 貞女殉道|紀念日
+12-14|十字架·聖若望 司鐸聖師|紀念日
+12-15|羅沙·聖瑪麗亞·德 貞女|
+12-16|聖亞德來 皇后|
+12-17|聖拉匝祿 義人|
+12-18|聖加大利納 貞女|
+12-19|聖烏爾班五世 教宗|
+12-20|西羅斯·聖道明 院長|
+12-21|聖伯多祿·加尼修 司鐸聖師|
+12-22|聖婦法蘭西斯 善婦|
+12-23|聖若望·甘底 司鐸|
+12-24|聖亞達納削 主教|
+12-25|耶穌聖誕|節日
+12-26|聖斯德望 首位殉道者|慶日
+12-27|聖若望 宗徒聖史|慶日
+12-28|諸聖嬰孩|慶日
+12-29|聖多瑪斯·白克特 主教殉道|紀念日
+12-30|耶穌、瑪利亞、若瑟聖家|慶日
+12-31|聖西爾維斯特一世 教宗|`.split("\n").forEach(l=>{const p=l.split("|");SAINTS[p[0]]={text:p[1],rank:p[2]||null}});
+function getSaintEntry(date){return eff(mdk(date))}
+const MARIAN_DATES=new Set(["01-01","02-11","03-25","05-13","05-24","05-31","07-16","08-05","08-15","08-22","09-08","09-12","09-15","09-24","10-07","11-21","11-27","12-08","12-12"]);
+function isJesusFeast(t){return t.startsWith("耶穌")&&!t.startsWith("耶穌·")}
+function saintColor(dateKey,e){
+  if(!e)return COLOR_SAINT_DEFAULT;
+  if(e.color)return e.color;
+  if(MARIAN_DATES.has(dateKey))return COLOR_BLUE;
+  if(e.text.includes("殉道"))return COLOR_MAROON;
+  if(e.rank==="節日")return COLOR_GOLD;if(e.rank==="慶日")return COLOR_CREAM;if(e.rank==="紀念日")return COLOR_LIGHT;
+  return COLOR_SAINT_DEFAULT}
+/* ---- 位階與移日（依《禮儀年及日曆總則》禮儀日位階表）---- */
+const GEN_SOL=["01-01","03-19","03-25","06-24","06-29","08-15","11-01","12-08","12-25"];
+const LORD_FEAST=["02-02","08-06","09-14","11-09"];
+const PARALLEL={"05-08":{text:"聖彌額爾總領天使 顯現",rank:"特殊紀念日"},"10-24":{text:"聖辣法額爾總領天使",rank:"特殊紀念日"}}; // 並行紀念
+const PAR_NOTE="並行紀念：日課經結束後誦念特殊禱文";
+const mdk=d=>`${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const ymd=d=>`${d.getFullYear()}-${mdk(d)}`;
+function solRank(t){
+  if(/^(吾主耶穌建立|吾主救主|復活節|復活前夕|聖週六)/.test(t))return 1;
+  if(/^(聖誕節|主降生前夕|主顯節|耶穌升天|聖神降臨|聖灰|聖枝|聖週一|聖週二|聖週三|復活八日|救主慈悲|喜樂主日|將臨期第)/.test(t))return 2;
+  if(/^(至聖天主聖三|基督聖體|耶穌聖心|基督普世|天主之母)/.test(t))return 3;
+  if(/^(主受洗|聖家)/.test(t))return 5;
+  if(/^(聖斯德望|聖若望 宗徒|諸聖嬰孩)/.test(t))return 7;
+  if(/^聖母無玷/.test(t))return 10;
+  return 9}
+function sRank(s,k){
+  if(!s)return 99;if(k==="11-02")return 3;
+  if(s.rank==="節日")return GEN_SOL.includes(k)?3:4;
+  if(s.rank==="慶日")return LORD_FEAST.includes(k)?5:7;
+  return s.rank==="紀念日"?10:(s.rank==="特殊紀念日"?11:12)}
+function temporal(date){
+  const Y=date.getFullYear(),td=liturgicalDatesForYear(Y),sol=matchSolemnity(date,td,Y),g=computeGenericSeasonText(date,td,Y);
+  let tr;
+  if(sol)tr=solRank(sol.text);
+  else if(g.isSunday)tr=["christmas","ordinary"].includes(g.seasonKind)?6:2;
+  else tr=g.seasonKind==="lent"?9:(g.seasonKind==="ordinary"?14:13);
+  return{sol,g,tr,td}}
+/*CU-START*/
+let CU={promos:{},feasts:{},adds:{},pal:"green"};
+try{Object.assign(CU,JSON.parse(localStorage.getItem("lh-custom")||"{}"))}catch(e){}
+function saveCU(keep){if(!keep)CU.t=Date.now();try{localStorage.setItem("lh-custom",JSON.stringify(CU))}catch(e){}if(!keep)ghDirty()}
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const okc=c=>/^#[0-9a-f]{6}$/i.test(c||"")?c:"";
+const RK3=["節日","慶日","紀念日"];
+function eff(k){
+  const f=CU.feasts[k];
+  if(f)return{text:esc(f.name)+(CU.adds[k]?" "+esc(CU.adds[k]):""),rank:RK3.includes(f.rank)?f.rank:null,color:okc(f.color),move:!!f.move,custom:1};
+  let s=SAINTS[k];if(!s)return null;
+  s={...s};const p=CU.promos[k];
+  if(p){if(RK3.includes(p.rank))s.rank=p.rank;s.color=okc(p.color);s.move=!!p.move;s.custom=1}
+  else if(!s.rank&&promo[k]){s.rank="紀念日";s.promoted=true}
+  if(CU.adds[k])s.text+=" "+esc(CU.adds[k]);
+  return s}
+/*CU-END*/
+const XF={};
+function transfers(Y){
+  if(XF[Y])return XF[Y];
+  const td=liturgicalDatesForYear(Y),m={},imp={},orig={};
+  const occ=t=>{const k=mdk(t);return temporal(new Date(t.getFullYear(),t.getMonth(),t.getDate(),12)).tr<=6||sRank(eff(k),k)<=8};
+  ["03-19","03-25","06-24","11-01","12-08"].forEach(k=>{
+    const[a,b]=k.split("-").map(Number),o=new Date(Y,a-1,b,12);
+    if(temporal(o).tr>3)return;
+    const hw=td.palmSunday,eo=addDays(td.easter,7);let t;
+    if(k==="03-19"&&o>=hw&&o<td.easter)t=addDays(hw,-1);
+    else if(k==="03-25"&&o>=hw&&o<=addDays(eo,1))t=addDays(eo,1);
+    else{t=addDays(o,1);while(occ(t))t=addDays(t,1)}
+    t=new Date(t.getFullYear(),t.getMonth(),t.getDate(),12);
+    m[ymd(t)]={e:eff(k),from:k,r:3};imp[k]=`${t.getMonth()+1}/${t.getDate()}`});
+  /*CU2-START*/
+  const at=k=>{const[a,b]=k.split("-").map(Number);return new Date(Y,a-1,b,12)};
+  const near=o=>{for(let i=1;i<=7;i++)for(const g of[1,-1]){const c=addDays(o,g*i);if(!occ(c)&&!m[ymd(c)])return c}return null};
+  const put=(k,e,r,c,flag)=>{m[ymd(c)]={e,from:k,r};flag[k]=`${c.getMonth()+1}/${c.getDate()}`};
+  new Set([...Object.keys(CU.promos),...Object.keys(CU.feasts)]).forEach(k=>{ // 個人設定：遇更高位階日時移日
+    const e=eff(k);if(!e||!e.move)return;
+    const r=sRank(e,k);if(r>8||temporal(at(k)).tr>=r)return;
+    const c=near(at(k));if(c)put(k,e,r,c,imp)});
+  Object.keys(CU.feasts).forEach(k=>{ // 個人瞻禮：原當日聖人移日
+    const s=SAINTS[k];if(CU.feasts[k].orig!=="move"||!s||!s.rank)return;
+    const r=sRank(s,k);if(r>8)return;
+    const c=near(at(k));if(c)put(k,s,r,c,orig)});
+  /*CU2-END*/
+  return XF[Y]={m,imp,orig}}
+function getLiturgicalInfo(date,saintEntry){
+  const d=stripTime(date),Y=d.getFullYear(),mk=mdk(d),{sol,g,tr,td}=temporal(date),X=transfers(Y);
+  const cycle=cycleLetterForLiturgicalYear(d<td.advent1?Y:Y+1),cycleColor=CYCLE_COLORS[cycle];
+  const sr=saintEntry?sRank(saintEntry,mk):99,xf=X.m[ymd(d)],moved=X.imp[mk],also=[];
+  if(moved)also.push(`${saintEntry.text} ${saintEntry.rank||""}：本年已移至 ${moved}`);
+  if(X.orig[mk])also.push(`原當日聖人 ${SAINTS[mk].text} ${SAINTS[mk].rank}：本年已移至 ${X.orig[mk]}`);
+  let win=null;
+  if(xf&&tr>xf.r)win={e:xf.e,r:xf.r,k:xf.from,x:1};
+  if(saintEntry&&!moved&&sr<(win?win.r:tr))win={e:saintEntry,r:sr,k:mk};
+  if(saintEntry&&!moved&&!(win&&win.e===saintEntry)&&!(sol&&sol.text===saintEntry.text))also.push(`同日聖人：${saintEntry.text}（今日以上述禮儀為主，可自由紀念）`);
+  const base={cycle,cycleColor,tr,also,par:PARALLEL[mk]||null};
+  if(win&&win.r<=8){
+    const label=win.x?`${win.e.text} ${win.e.rank}（自 ${win.k.replace("-","/")} 移）`:`${win.e.text} ${win.e.rank}`;
+    return{...base,text:label,color:saintColor(win.k,win.e),saintAllowed:false,replaced:true}}
+  return{...base,text:sol?sol.text:g.text,color:sol?sol.color:g.color,saintAllowed:!!win,replaced:!!sol}}
+
+/* ---- 打卡 ---- */
+const HOURS=[["or","誦讀","📜"],["la","晨禱","🌅"],["tr","午前經","🕘"],["si","午時經","☀️"],["no","午後經","🕒"],["ve","晚禱","🌇"],["co","夜禱","🌙"]];
+const DAY=["tr","si","no"];
+let promo={};
+try{promo=JSON.parse(localStorage.getItem("lh-promo")||"{}")}catch(e){}
+function savePromo(q){if(!q)CU.t=Date.now();try{localStorage.setItem("lh-promo",JSON.stringify(promo));localStorage.setItem("lh-custom",JSON.stringify(CU))}catch(e){}if(!q)ghDirty()}
+let store={};
+try{store=JSON.parse(localStorage.getItem("lh-store")||"{}")}catch(e){}
+function save(q){try{localStorage.setItem("lh-store",JSON.stringify(store))}catch(e){}if(!q)ghDirty()}
+const cnt=k=>{const c=(store[k]&&store[k].c)||{};return["or","la","ve","co"].filter(h=>c[h]).length+(DAY.some(h=>c[h])?1:0)};
+const $=s=>document.querySelector(s);
+const p2=n=>String(n).padStart(2,"0");
+const fk=d=>`${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`;
+const now=new Date(),tk=fk(now);
+const dateOf=k=>k===tk?now:new Date(+k.slice(0,4),+k.slice(5,7)-1,+k.slice(8,10),12);
+const dayInfo=d=>{const saint=getSaintEntry(d);return{saint,lit:getLiturgicalInfo(d,saint)}};
+function ink(hex){const n=parseInt(hex.slice(1),16),l=(0.299*(n>>16)+0.587*((n>>8)&255)+0.114*(n&255))/255;return l>0.6?"#222":"#fff"}
+const lum=hex=>{const n=parseInt(hex.slice(1),16);return(0.299*(n>>16)+0.587*((n>>8)&255)+0.114*(n&255))/255};
+const heatColor=hex=>lum(hex)>0.85?COLOR_GOLD:hex;
+function rk(s){const r=s.rank;if(s.promoted)return`<span class="rk m">紀念日・私禱提升</span>`;if(r==="節日")return`<span class="rk f">節日</span>`;if(r==="慶日")return`<span class="rk s">慶日</span>`;return`<span class="rk m">${r||"自由紀念"}</span>`}
+function longDate(d){return`${d.getFullYear()} 年 ${d.getMonth()+1} 月 ${d.getDate()} 日　週${WEEKDAY_CH[d.getDay()]}`}
+function litBlock(d,big,withBtn){
+  const{lit,saint}=dayInfo(d);
+  let h=`<div class="row" style="flex-wrap:wrap;gap:6px"><span class="badge" style="background:${lit.cycleColor}">${lit.cycle}年</span><span class="pill" style="background:${lit.color};color:${ink(lit.color)};${big?"font-size:18px":""}">${lit.text}</span></div>`;
+  if(lit.saintAllowed&&saint){h+=`<div style="margin-top:8px">✝️ <b>${saint.text}</b>${rk(saint)}${saint.custom?`<span class="rk m">個人設定</span>`:""}</div>`;
+    if(withBtn&&(saint.promoted||!saint.rank))h+=`<button class="pro" data-pk="${p2(d.getMonth()+1)}-${p2(d.getDate())}">${saint.promoted?"取消提升":"⬆️ 提升為紀念日（私禱）"}</button>`}
+  if(lit.also.length)h+=`<div class="mu" style="margin-top:8px">${lit.also.join("<br>")}</div>`;
+  if(lit.par)h+=`<div class="mu" style="margin-top:8px">🪽 並行紀念：<b>${lit.par.text}</b>（${lit.par.rank}）<br>${PAR_NOTE}</div>`;
+  return h}
+const dOpen={};
+function checklist(el,k,onChange){
+  const rec=store[k]||{c:{},n:""};
+  const hs=id=>HOURS.find(h=>h[0]===id);
+  const btn=([id,nm,ic],sub)=>`<button class="chk${sub?" sub":""}${rec.c[id]?" on":""}" data-h="${id}"><span class="box">${rec.c[id]?"✓":""}</span><span style="font-size:20px">${ic}</span><b>${nm}</b></button>`;
+  const picked=DAY.filter(h=>rec.c[h]),open=dOpen[k]!==undefined?dOpen[k]:picked.length>0;
+  el.innerHTML=["or","la"].map(id=>btn(hs(id))).join("")
+    +`<button class="chk${picked.length?" on":""}" id="ddb"><span class="box">${picked.length?"✓":""}</span><span style="font-size:20px">☀️</span><b>日間經</b><span class="mu" style="margin-left:auto">${picked.length?picked.map(h=>hs(h)[1].replace("經","")).join("・"):"點開選擇"} ${open?"▴":"▾"}</span></button>`
+    +(open?`<div class="subs">${DAY.map(id=>btn(hs(id),1)).join("")}</div>`:"")
+    +["ve","co"].map(id=>btn(hs(id))).join("")
+    +`<div class="grp">今日心得 ✍️</div><textarea placeholder="寫下今天誦念的感想、默想的句子⋯">${(rec.n||"").replace(/</g,"&lt;")}</textarea>`;
+  el.querySelector("#ddb").onclick=()=>{dOpen[k]=!open;checklist(el,k,onChange)};
+  el.querySelectorAll(".chk[data-h]").forEach(b=>b.onclick=()=>{
+    const r=store[k]=store[k]||{c:{},n:""};r.c[b.dataset.h]=!r.c[b.dataset.h];r.t=Date.now();save();onChange()});
+  const ta=el.querySelector("textarea"),fit=()=>{ta.style.height="auto";if(ta.scrollHeight)ta.style.height=ta.scrollHeight+"px"};
+  ta.oninput=e=>{const r=store[k]=store[k]||{c:{},n:""};r.n=e.target.value;r.t=Date.now();save();fit()};fit()}
+function streak(){let n=0,d=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12);if(!cnt(fk(d)))d=addDays(d,-1);while(cnt(fk(d))>0){n++;d=addDays(d,-1)}return n}
+/* ===================== 新增：資料層 ===================== */
+const LS=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+const WS=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return 1}catch(e){return 0}};
+let H=LS("lh-health",{d:{}}),SC=LS("lh-school",{ev:{},cats:null,links:[],t:0}),CFG=LS("lh-cfg",{name:"Leo T.R.H. Huang",flt:"all",wk:0,t:0}),PH=LS("lh-photos",{});
+if(!SC.cats)SC.cats=[{n:"學校",c:"#3f7fc4",s:1},{n:"家庭",c:"#e08a1e"},{n:"教會",c:"#8B5FBF"},{n:"個人",c:"#3FA34D"}];
+SC.links=SC.links||[];SC.rec=SC.rec||[];
+const sH=q=>{WS("lh-health",H);if(!q)ghDirty()},sS=q=>{if(!q)SC.t=Date.now();WS("lh-school",SC);if(!q)ghDirty()},sC=q=>{if(!q)CFG.t=Date.now();WS("lh-cfg",CFG);if(!q)ghDirty()};
+const hd=k=>H.d[k]=H.d[k]||{meals:[]};
+const hput=(k,f)=>{const r=hd(k);r.meals=r.meals||[];f(r);r.t=Date.now();sH()};
+const meals=k=>(H.d[k]&&H.d[k].meals)||[];
+const evs=k=>{const l=((SC.ev[k]&&SC.ev[k].l)||[]).slice(),d=dateOf(k);(SC.rec||[]).forEach(r=>{if(k>=r.s&&!(r.ex||[]).includes(k)&&(r.r==="w"?d.getDay()===dateOf(r.s).getDay():+k.slice(8)===+r.s.slice(8)))l.push({id:r.id,t:r.t,c:r.c,rec:r.r})});return l};
+const sleepMin=k=>{const s=H.d[k]&&H.d[k].sl;if(!s||!s.b||!s.w)return null;const m=x=>+x.slice(0,2)*60+ +x.slice(3),b=m(s.b),w=m(s.w);return b>=720?1440-b+w:w-b};
+const slTxt=k=>{const x=sleepMin(k);return x==null?"填入就寢與起床時間，自動算睡眠時數（建議 8–10 小時）":`睡了 ${Math.floor(x/60)} 小時 ${x%60} 分`};
+const cat=n=>SC.cats.find(c=>c.n===n)||{n,c:"#888"};
+const isSch=n=>!!cat(n).s;
+const MT=["早餐","午餐","晚餐","點心"];
+const hm=d=>p2(d.getHours())+":"+p2(d.getMinutes());
+const noon=()=>new Date(now.getFullYear(),now.getMonth(),now.getDate(),12);
+const rangeKeys=r=>{const n={w:7,m:30,q:90}[r]||7;return Array.from({length:n},(_,i)=>fk(addDays(noon(),i-n+1)))};
+function weekStart(){const t=noon();return addDays(t,-((t.getDay()-(+CFG.wk||0)+7)%7))}
+const wkKey=()=>"wk-"+fk(weekStart());
+const PT=["0810-0900","0910-1000","1020-1110","1120-1210","1320-1410","1420-1510","1520-1610"];
+const TT=[
+[["國文","蔡薫誼"],["歷史","陳秀珍"],["體育","姬榮軍"],["班會","朱建鑫"],["數學","朱建鑫"],["英文","梁鳳文"],["音樂","解芮君"]],
+[["生活科技","李飛聲"],["生活科技","李飛聲"],["多元選修",""],["彈性學習(多元延伸)",""],["數學","朱建鑫"],["國文","蔡薫誼"],["地理","張瑋蓁"]],
+[["數學","朱建鑫"],["音樂","解芮君"],["公民","鄭為峻"],["英文","梁鳳文"],["彈性學習",""],["彈性學習",""],["社團活動",""]],
+[["英文","梁鳳文"],["公民","鄭為峻"],["地理","張瑋蓁"],["數學","朱建鑫"],["體育","姬榮軍"],["生命教育","楊耀婷"],["國文","蔡薫誼"]],
+[["探究與實作A","張峻輔"],["探究與實作A","張峻輔"],["地球科學","蕭羽利"],["地球科學","蕭羽利"],["歷史","陳秀珍"],["英文","梁鳳文"],["國文","蔡薫誼"]]];
+const LINKS=[["雄中官網","https://www.kshs.kh.edu.tw/home"],["雄中圖書館","https://www.kshs.kh.edu.tw/sub/latestevent/index?Parser=9,26,29"],["校園資訊系統","https://webap1.kshs.kh.edu.tw/kshssso/index.aspx"],["校務行政系統","https://highschool.kh.edu.tw/Login.action?schNo=553301D#"]];
+const WCHK=["有努力增加睡眠時間","大致維持三餐規律","安排適合當天狀況的活動","沒有用挨餓或運動補償飲食","留意精神、專注力與身體恢復"];
+const ST={hs:"today",hk:tk,rt:"wt",rr:"w",ld:null,dl:0,dh:0};
+const cs={y:now.getFullYear(),m:now.getMonth(),sel:tk};
+const seg=(g,cur,items)=>`<div class="seg">${items.map(([v,t])=>`<button data-a="seg" data-g="${g}" data-v="${v}" class="${String(cur)===v?"on":""}">${t}</button>`).join("")}</div>`;
+const ttl=(a,b,c)=>`<div class="ttl"><h1>${a}</h1><h2>${b}</h2><div class="sub">${c}</div></div>`;
+function tab(id){document.querySelectorAll(".tab,section").forEach(x=>x.classList.remove("on"));document.querySelector(`.tab[data-s="${id}"]`).classList.add("on");$("#"+id).classList.add("on");scrollTo(0,0)}
+function shrink(f){return new Promise((ok,no)=>{const i=new Image();i.onload=()=>{const s=Math.min(1,640/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*s;c.height=i.height*s;c.getContext("2d").drawImage(i,0,0,c.width,c.height);ok(c.toDataURL("image/jpeg",.6))};i.onerror=no;i.src=URL.createObjectURL(f)})}
+function addEvent(k,t,c,rp){const id=Date.now().toString(36);if(rp){SC.rec.push({id,t,c,r:rp,s:k,ex:[]});sS();return}const r=SC.ev[k]=SC.ev[k]||{l:[]};r.l.push({id,t,c});r.t=Date.now();sS()}
+
+/* ===================== 日課頁 ===================== */
+function renderLit(){
+  $("#head").innerHTML=`<div class="mu" style="margin-bottom:8px">${longDate(now)}</div>`+litBlock(now,true);
+  const c=cnt(tk);$("#pbar").style.width=c/5*100+"%";
+  $("#ptxt").textContent=`已完成 ${c} / 5`+(c===5?" 🌿 今天全部完成了！":"");
+  const s=streak();$("#streak").textContent=s?`🔥 連續 ${s} 天`:"";
+  checklist($("#todayList"),tk,()=>{renderLit();renderCal();renderWeek()});
+  $("#heat").innerHTML=rangeKeys("m").slice(2).map(k=>`<div title="${k}" style="height:28px;border-radius:7px;border:1px solid var(--ln);font-size:11px;text-align:center;line-height:26px;background:color-mix(in srgb,var(--g) ${cnt(k)/5*100}%,transparent)">${+k.slice(8)}</div>`).join("");renderBadges()}
+function renderHome(){renderLit();renderWeek()}
+
+/* ===================== 首頁：月曆 ===================== */
+function renderCal(){
+  const f=CFG.flt||"all",wk=+CFG.wk||0;
+  $("#flt").value=f;$("#cy").value=cs.y;$("#cm").value=cs.m;
+  let h=Array.from({length:7},(_,i)=>`<div class="wd">${WEEKDAY_CH[(i+wk)%7]}</div>`).join("");
+  const pad=(new Date(cs.y,cs.m,1).getDay()-wk+7)%7,n=new Date(cs.y,cs.m+1,0).getDate();
+  for(let i=0;i<pad;i++)h+="<div></div>";
+  for(let day=1;day<=n;day++){
+    const d=new Date(cs.y,cs.m,day,12),k=fk(d),{lit,saint}=dayInfo(d),c=cnt(k),ev=evs(k),mc=meals(k).length;
+    let a=0,hc=heatColor(lit.color),lab="",dot="",ct="",hi="",dd=[];
+    if(f==="all"||f==="lit"){
+      a=c/5;ct=c?`${c}/5`:"";dot=`<i style="background:${lit.color}"></i>`;
+      lab=lit.replaced?lit.text.replace(/ ?(節日|慶日)(（.*）)?$/,""):lit.saintAllowed?(saint&&saint.rank?saint.text.split(" ")[0]:""):(lit.tr===2?lit.text:"");
+      hi=lit.replaced||lit.tr===2||(lit.saintAllowed&&saint&&saint.rank)?" hi":"";
+      if(f==="all")dd=ev.filter(e=>!isSch(e.c))}
+    else if(f==="health"){a=Math.min(mc,4)/4;hc="#e08a1e";lab=mc?mc+" 筆":""}
+    else{dd=ev;lab=ev.slice(0,2).map(e=>esc(e.t)).join(" ");hi=" hi"}
+    h+=`<button class="day${k===tk?" today":""}${k===cs.sel?" sel":""}" data-a="pick" data-k="${k}" style="--a:${a};--hc:${hc}">${dot}<b>${day}</b><span class="sn${hi}">${lab}</span><span class="evd">${dd.slice(0,5).map(e=>`<em style="background:${cat(e.c).c}"></em>`).join("")}</span>${ct?`<span class="ct">${ct}</span>`:""}</button>`}
+  $("#calG").innerHTML=h;
+  $("#legend").textContent={all:"底色＝日課誦念深淺（禮儀色）；小圓點＝一般行程 🌿",lit:"聖人曆與日課誦念情況；底色越深完成越多",health:"橘色越深＝當天飲食紀錄越多（體重不顯示在月曆）",life:"學校與一般行程（顏色＝分類）"}[f];
+  renderDetail()}
+function evList(k){return evs(k).map(e=>`<div class="item row sp"><span><span class="chipc" style="background:${cat(e.c).c}"></span>${esc(e.t)} <span class="mu">${esc(e.c)}${e.rec?" 🔁":""}</span></span><button class="x" data-a="delEv" data-k="${k}" data-id="${e.id}" data-rec="${e.rec||""}">✕</button></div>`).join("")||`<div class="mu">（這天沒有行程）</div>`}
+function hSummary(k){
+  const r=H.d[k]||{},ms=meals(k).slice().sort((a,b)=>(a.tm||"").localeCompare(b.tm||""));
+  return `<div class="mu">體重　清晨 ${r.am||"–"} kg ／ 睡前 ${r.pm||"–"} kg</div>`+(ms.map(x=>`<div class="item">${x.ty} ${esc(x.tm||"")}　${esc(x.f)}${x.p!==""&&x.p!=null?` $${esc(x.p)}`:""}</div>`).join("")||`<div class="mu" style="margin-top:6px">（沒有飲食紀錄）</div>`)+`<button class="pro" data-a="gohealth" data-k="${k}">✏️ 到健康頁編輯這天</button>`}
+function renderDetail(){
+  const k=cs.sel,d=dateOf(k),r=H.d[k]||{};
+  $("#calD").innerHTML=`<div class="row sp"><b>${longDate(d)}</b><span class="mu">日課 ${cnt(k)}/5</span></div>
+<div class="grp">✝️ 聖人曆</div>${litBlock(d,false,true)}
+<div class="grp">📌 普通及學校日曆</div><div>${evList(k)}</div>
+<div class="fr" style="margin-top:10px"><input type="text" id="evt" placeholder="新增行程⋯" style="flex:1;min-width:120px"><select id="evc">${opt(SC.cats.map(c=>c.n))}</select><select id="evr"><option value="">不重複</option><option value="w">每週</option><option value="m">每月</option></select></div><button class="pro" style="margin:0 0 8px" data-a="addEv">＋ 加入這天</button>
+<details data-dt="dl"${ST.dl?" open":""}><summary>📿 日課誦念情況（${cnt(k)}/5）</summary><div id="calL" style="margin-top:8px"></div></details>
+<details data-dt="dh"${ST.dh?" open":""}><summary>🌿 健康紀錄（${meals(k).length} 筆飲食${r.am||r.pm?"・有體重":""}）</summary>${hSummary(k)}</details>`;
+  checklist($("#calL"),k,()=>{renderCal();renderLit();renderWeek()})}
+
+/* ===================== 首頁：本週回顧 ===================== */
+function renderWeek(){
+  const st=weekStart(),ks=Array.from({length:7},(_,i)=>fk(addDays(st,i))),wr=H.d[wkKey()]||{};
+  let tot=0,md=0,rows="";
+  ks.forEach(k=>{const c=cnt(k),m=meals(k).length,r=H.d[k]||{},n=evs(k).length;tot+=c;if(m)md++;
+    rows+=`<tr${k===tk?' class="cur"':""}><td>${+k.slice(8)}日 週${WEEKDAY_CH[dateOf(k).getDay()]}</td><td>${c}/5</td><td>${m||"–"}</td><td>${r.am||"–"} / ${r.pm||"–"}</td><td>${n||"–"}</td></tr>`});
+  const sl=ks.map(sleepMin).filter(x=>x!=null),ams=ks.map(k=>H.d[k]&&+H.d[k].am).filter(Boolean),dw=ams.length>1?(ams[ams.length-1]-ams[0]).toFixed(1):null;
+  $("#wk").innerHTML=`<h2>🗓️ 本週回顧</h2>
+<div class="bar" style="margin:0 0 6px"><i style="width:${tot/35*100}%"></i></div>
+<div class="mu">日課 <b>${tot}</b>/35 ・ 飲食有紀錄 <b>${md}</b> 天 ・ 清晨體重變化 <b>${dw===null?"–":(dw>0?"+":"")+dw+" kg"}</b> ・ 平均睡眠 <b>${sl.length?(sl.reduce((a,b)=>a+b,0)/sl.length/60).toFixed(1)+" 小時":"–"}</b></div>
+<table style="margin-top:8px"><tr><th>日</th><th>日課</th><th>餐</th><th>體重 晨/晚</th><th>行程</th></tr>${rows}</table>
+<div class="grp">每週檢視（輕輕回顧就好，不必打分數）</div>
+${WCHK.map((t,i)=>`<button class="chk sub${wr.chk&&wr.chk[i]?" on":""}" data-a="wchk" data-i="${i}"><span class="box">${wr.chk&&wr.chk[i]?"✓":""}</span>${t}</button>`).join("")}
+<textarea data-ch="rv" placeholder="本週觀察或需要調整的地方（選填）">${esc(wr.rv||"")}</textarea>
+<button class="pro" data-a="gorec">📊 查看完整紀錄</button>`}
+
+/* ===================== 健康頁 ===================== */
+function mealItem(k,x,del){return `<div class="item row sp" style="align-items:flex-start"><div><b>${esc(x.tm||"")}</b> ${esc(x.f)}${x.p!==""&&x.p!=null?` <span class="mu">$${esc(x.p)}</span>`:""}${x.n?`<div class="mu">${esc(x.n)}</div>`:""}${PH[x.id]?`<img class="th" src="${PH[x.id]}" alt="">`:""}</div>${del?`<button class="x" data-a="delMeal" data-k="${k}" data-id="${x.id}">✕</button>`:""}</div>`}
+function renderHealth(){
+  $("#s_hea").innerHTML=ttl("Salus","健康","先睡好、正常吃、規律動 🌿")+seg("hs",ST.hs,[["today","今日"],["rec","紀錄"],["plan","計畫"]])+(ST.hs==="today"?hToday():ST.hs==="rec"?hRec():hPlan())}
+function hToday(){
+  const k=ST.hk,r=H.d[k]||{},d=dateOf(k),h0=now.getHours(),dt=h0<10?"早餐":h0<15?"午餐":h0<17?"點心":h0<21?"晚餐":"點心";
+  let h=`<div class="nav"><button data-a="hday" data-m="-1">‹</button><b>${longDate(d)}</b><button data-a="hday" data-m="1">›</button></div>
+<div class="card"><h2>⚖️ 體重（kg）</h2><div class="fr"><label>當日清晨<input type="number" step="0.1" inputmode="decimal" data-ch="am" value="${r.am||""}" style="width:130px"></label><label>當日睡前<input type="number" step="0.1" inputmode="decimal" data-ch="pm" value="${r.pm||""}" style="width:130px"></label></div><div class="mu">起床後、進食前量最準。數字只是參考，不必責備自己。</div></div>
+<div class="card"><h2>😴 睡眠</h2><div class="fr"><label>昨晚就寢<input type="time" data-ch="bt" value="${(r.sl&&r.sl.b)||""}"></label><label>今天起床<input type="time" data-ch="wu" value="${(r.sl&&r.sl.w)||""}"></label></div><div class="mu" id="slr">${slTxt(k)}</div></div>
+<div class="card"><h2>🍽️ 新增飲食紀錄</h2>
+<div class="fr"><label>餐別<select id="mt">${opt(MT,dt)}</select></label><label>大約時間<input type="time" id="mtm" value="${hm(now)}"></label><label>價格（選填）<input type="number" id="mpr" inputmode="decimal" style="width:110px" placeholder="元"></label></div>
+<div class="fr"><label style="flex:1">吃什麼<input type="text" id="mf" placeholder="例：吐司＋雞蛋＋豆漿"></label></div>
+<div class="fr"><label style="flex:1">備註<input type="text" id="mn" placeholder="（選填）"></label></div>
+<div class="fr"><label>📷 拍照／選照片<input type="file" id="mp" accept="image/*"></label></div>
+<div class="mu" id="hm"></div><button class="pro" data-a="addMeal">＋ 新增</button></div>`;
+  const ms=meals(k),tot=ms.reduce((s,x)=>s+(+x.p||0),0);
+  h+=`<div class="card"><div class="row sp"><h2 style="margin:0">今日飲食</h2><span class="mu">${tot?"共 $"+tot:""}</span></div>`+MT.map(t=>{const l=ms.filter(x=>x.ty===t).sort((a,b)=>(a.tm||"").localeCompare(b.tm||""));return l.length?`<div class="grp">${t}</div>`+l.map(x=>mealItem(k,x,1)).join(""):""}).join("")+(ms.length?"":`<div class="mu" style="margin-top:8px">（還沒有紀錄）</div>`)+`</div>`;
+  return h}
+function wChart(ks){
+  const S=[["am","var(--g)"],["pm","#e08a1e"]].map(([f,c])=>({c,p:ks.map((k,i)=>[i,H.d[k]&&+H.d[k][f]]).filter(x=>x[1])}));
+  const all=S.flatMap(s=>s.p.map(x=>x[1]));if(!all.length)return`<div class="mu">這段期間還沒有體重紀錄</div>`;
+  const lo=Math.floor(Math.min(...all))-1,hi=Math.ceil(Math.max(...all))+1,n=Math.max(ks.length-1,1),X=i=>34+i/n*276,Y=v=>10+(hi-v)/(hi-lo)*110;
+  return`<svg viewBox="0 0 320 150" width="100%" style="display:block"><g stroke="var(--ln)"><line x1="34" x2="310" y1="10" y2="10"/><line x1="34" x2="310" y1="65" y2="65"/><line x1="34" x2="310" y1="120" y2="120"/></g><g fill="var(--mu)" font-size="10"><text x="2" y="13">${hi}</text><text x="2" y="68">${((hi+lo)/2).toFixed(1)}</text><text x="2" y="123">${lo}</text><text x="34" y="140">${ks[0].slice(5)}</text><text x="310" y="140" text-anchor="end">${ks[ks.length-1].slice(5)}</text></g>`+S.map(s=>`<polyline fill="none" stroke="${s.c}" stroke-width="2" points="${s.p.map(x=>X(x[0])+","+Y(x[1])).join(" ")}"/>`+s.p.map(x=>`<circle cx="${X(x[0])}" cy="${Y(x[1])}" r="3" fill="${s.c}"/>`).join("")).join("")+`</svg><div class="mu"><span style="color:var(--g)">●</span> 清晨　<span style="color:#e08a1e">●</span> 睡前</div>`}
+function hRec(){
+  const ks=rangeKeys(ST.rr),rev=ks.slice().reverse();
+  let h=`<div class="col3">${[["wt","⚖️","體重"],["fd","🍽️","飲食"],["lt","✝️","日課經"],["sl","😴","睡眠"]].map(([v,i,t])=>`<button data-a="seg" data-g="rt" data-v="${v}" class="${ST.rt===v?"on":""}"><span>${i}</span>${t}</button>`).join("")}</div>`+seg("rr",ST.rr,[["w","近一週"],["m","近一月"],["q","近一季"]]);
+  if(ST.rt==="wt"){
+    const rows=rev.filter(k=>H.d[k]&&(H.d[k].am||H.d[k].pm));
+    h+=`<div class="card"><h2>體重折線圖</h2>${wChart(ks)}</div><div class="card"><h2>體重表格</h2>`+(rows.length?`<table><tr><th>日期</th><th>清晨</th><th>睡前</th><th>日內差</th></tr>${rows.map(k=>{const r=H.d[k],df=r.am&&r.pm?(r.pm-r.am).toFixed(1):"–";return`<tr><td>${k.slice(5)}</td><td>${r.am||"–"}</td><td>${r.pm||"–"}</td><td>${df}</td></tr>`}).join("")}</table>`:`<div class="mu">（尚無紀錄）</div>`)+`</div>`}
+  else if(ST.rt==="fd"){
+    const days=rev.filter(k=>meals(k).length);
+    h+=`<div class="card"><h2>飲食紀錄</h2>`+(days.map(k=>{const ms=meals(k).slice().sort((a,b)=>(a.tm||"").localeCompare(b.tm||"")),tot=ms.reduce((s,x)=>s+(+x.p||0),0);return`<div class="grp"><b>${k.slice(5)} 週${WEEKDAY_CH[dateOf(k).getDay()]}</b>${tot?`・共 $${tot}`:""}</div>`+ms.map(x=>`<div class="item"><span class="rk s">${x.ty}</span> ${mealItem(k,x,0)}</div>`).join("")}).join("")||`<div class="mu">（尚無紀錄）</div>`)+`</div>`}
+  else if(ST.rt==="sl"){const rows=rev.filter(k=>sleepMin(k)!=null),av=rows.length?rows.reduce((s,k)=>s+sleepMin(k),0)/rows.length:0;
+    h+=`<div class="card"><h2>睡眠</h2>`+(rows.length?`<div class="mu">平均 ${(av/60).toFixed(1)} 小時（${rows.length} 天有紀錄）</div><table><tr><th>日期</th><th>就寢</th><th>起床</th><th>時數</th></tr>${rows.map(k=>{const s=H.d[k].sl,x=sleepMin(k);return`<tr><td>${k.slice(5)}</td><td>${s.b}</td><td>${s.w}</td><td>${(x/60).toFixed(1)}</td></tr>`}).join("")}</table>`:`<div class="mu">（尚無紀錄）</div>`)+`</div>`}
+  else{
+    h+=`<div class="card"><h2>日課經誦念</h2><table><tr><th>日期</th><th>完成</th><th>誦念</th></tr>${rev.map(k=>{const c=(store[k]&&store[k].c)||{},ns=HOURS.filter(x=>c[x[0]]).map(x=>x[1].replace("經","")).join("・");return`<tr><td>${k.slice(5)}</td><td>${cnt(k)}/5</td><td class="mu">${ns||"–"}</td></tr>`}).join("")}</table></div>`}
+  h+=`<button class="pro" data-a="rpt">🖨️ 匯出報告給醫師（近三個月，存成 PDF）</button>`;
+  return h}
+function hPlan(){return `<div class="card"><h2>🌿 健康體重管理暨生活作息改善計畫</h2><div class="mu">2026 年 10 月起，持續執行並定期檢視。改善健康、建立規律、維持體能；不靠挨餓、熬夜或過度運動追求數字。</div><div class="item"><b>先睡好、正常吃、規律動，再依健康評估調整體重目標。</b></div></div>
+<div class="card"><h2>🎯 目標與原則</h2>
+<details><summary>你提出的期望</summary><div class="mu">2027 年 7 月前希望 80 kg；2027 年底前希望 60 kg。這是期望，先記錄、不設為必須達成的期限；仍在發育，合適的方向請由醫師依年齡、性別、成長曲線與健康狀況判斷。</div></details>
+<details><summary>四大優先順序</summary><ol><li><b>睡眠</b>：改善晚睡、失眠與不固定作息，避免通宵後長距離活動。</li><li><b>規律飲食</b>：維持三餐、營養足夠，逐步調整飲料與零食。</li><li><b>日常活動與步行</b>：保留週六戶外步行，平日利用通勤與下課時間活動。</li><li><b>健康評估與追蹤</b>：由家長陪同接受醫療評估，依身體反應調整。</li></ol></details></div>
+<div class="card"><h2>😴 睡眠</h2>
+<details><summary>上課日目標作息</summary><table><tr><td>06:15</td><td>起床、盥洗、早餐</td></tr><tr><td>07:03</td><td>搭火車通勤</td></tr><tr><td>08:10–16:10</td><td>上課、午餐、下課走動</td></tr><tr><td>16:10 後</td><td>返家或補習</td></tr><tr><td>20:30</td><td>收尾、準備隔日用品</td></tr><tr><td>21:00</td><td>降低燈光與刺激，避免滑手機</td></tr></table><div class="mu">青少年一般建議每晚睡 8–10 小時。若常凌晨才睡，每幾天提早 15–30 分鐘即可。</div></details>
+<details><summary>補習日（週一、四、五可能到 21:00）</summary><ul><li>能在白天完成的作業，盡量用下課空檔。</li><li>回家後先處理晚餐、盥洗與必要的隔日準備。</li><li>不為了做完所有非急迫作業而長期壓縮睡眠。</li><li>長期睡不著、日夜顛倒或白天嚴重疲倦，請告訴家長並就醫評估。</li></ul></details>
+<details><summary>睡不好時怎麼辦</summary><ul><li>拖延睡覺：設睡前提醒，手機放床邊以外。</li><li>躺下睡不著：起身在昏暗環境做安靜的事，有睡意再回床。</li><li>整晚沒睡：不安排長距離步行，優先休息。</li><li>作息大幅變動：先固定起床時間，再逐步調整就寢時間。</li></ul></details></div>
+<div class="card"><h2>🍽️ 飲食</h2><div class="mu">第一階段不計算嚴格熱量，先建立規律、營養足夠的吃法；也不自設每日熱量上限、不用快速減重產品。</div>
+<details><summary>三餐</summary><ul><li><b>早餐</b>：吐司＋雞蛋、牛奶或無糖豆漿；趕車時準備好攜帶的。不跳餐。</li><li><b>午餐</b>：正常吃學校午餐，兼顧主食、蛋白質、蔬菜。</li><li><b>晚餐</b>：不因較晚就省略；補習延後可先吃一部分，返家再補足。</li></ul></details>
+<details><summary>四個原則</summary><ul><li>飲料以白開水為主，逐步減少含糖飲料。</li><li>零食不必完全禁止，留意飢餓感與進食情境。</li><li>不跳餐、不挨餓，也不因某餐吃多就刻意補償。</li><li>食物多樣，支持成長、學習與活動後恢復。</li></ul></details></div>
+<div class="card"><h2>🚶 週六 10 公里步行</h2><div class="mu">萬金 → 佳平 → 返家，約 10 公里，預留 2.5–3 小時。</div>
+<details><summary>出發前／途中／返家後</summary><ul><li>前一晚睡足，不為早起而通宵；檢查天氣、鞋子、飲水、手機與返家安排。</li><li>以舒服、能正常交談的速度走；視天氣補水、適時休息。</li><li>返家後補水、正常吃飯、洗澡休息；腿痛或異常疲倦，下週就調整距離。</li><li>前晚幾乎沒睡、頭暈或不適就取消；胸痛、異常喘促請立即停止並求助。</li></ul></details>
+<details><summary>每週活動配置</summary><table><tr><td>週一</td><td>通勤與下課走動</td></tr><tr><td>週二</td><td>通勤與下課走動，有餘力散步 10–20 分鐘</td></tr><tr><td>週三</td><td>日常活動與輕鬆散步</td></tr><tr><td>週四</td><td>通勤、日常活動為主，兼顧補習</td></tr><tr><td>週五</td><td>不為週六訓練而熬夜；適度活動、準備隔日用品</td></tr><tr><td>週六</td><td>約 10 公里戶外步行，依睡眠與身體調整</td></tr><tr><td>週日</td><td>恢復、輕鬆散步或休息</td></tr></table></details></div>
+<div class="card"><h2>🩺 評估與第一個月</h2>
+<details><summary>建議的醫療評估</summary><div class="mu">近期請家長陪同掛兒科或家庭醫學科，評估成長曲線、血壓與醫師認為需要的指標，再訂定適合的目標。這是為了讓計畫更安全、更有依據，不代表一定有問題。</div></details>
+<details><summary>第一個月</summary><ol><li><b>第 1 週</b> 觀察與建立規律：記錄睡眠、三餐與活動，不急著追求體重變化。</li><li><b>第 2 週</b> 逐步調整睡眠：提早睡前準備、減少深夜滑手機。</li><li><b>第 3 週</b> 鞏固飲食與活動：維持三餐，依身體安排週六步行。</li><li><b>第 4 週</b> 檢視並修正：看哪些習慣能維持、哪些與課業衝突。</li></ol></details>
+<div class="mu" style="margin-top:8px">每週檢視表在首頁「本週回顧」。</div></div>`}
+
+/* ===================== 生活頁 ===================== */
+const teForm=(T,wd)=>`<div class="grp">編輯週${"一二三四五"[wd]}（改完自動儲存）</div>`+PT.map((t,i)=>`<div class="fr"><span style="width:20px">${i+1}</span><input type="text" data-ch="tte" data-d="${wd}" data-p="${i}" data-f="0" value="${esc(T[wd][i][0])}" placeholder="課程" style="flex:1;min-width:0"><input type="text" data-ch="tte" data-d="${wd}" data-p="${i}" data-f="1" value="${esc(T[wd][i][1])}" placeholder="老師" style="width:90px"></div>`).join("")+`<button class="pro" style="margin:0" data-a="teReset">還原試用課表</button>`;
+function renderLife(){
+  const T=SC.tt||TT,wd=ST.ld!=null?+ST.ld:(now.getDay()>=1&&now.getDay()<=5?now.getDay()-1:0),isT=wd===now.getDay()-1,nm=now.getHours()*60+now.getMinutes(),mm=s=>+s.slice(0,2)*60+ +s.slice(2),ft=s=>s.slice(0,2)+":"+s.slice(2);
+  let h=ttl("Schola","生活","學校與日常")+`<div class="card"><div class="row sp"><h2 style="margin:0">📚 課表</h2><span class="mu">103 班・導師 朱建鑫</span></div><div style="margin-top:10px">${seg("ld",wd,["一","二","三","四","五"].map((t,i)=>[String(i),"週"+t]))}</div>
+<table><tr><th>節</th><th>時間</th><th>課程</th><th>老師</th></tr>${PT.map((t,i)=>{const[a,b]=t.split("-"),c=T[wd][i],cur=isT&&nm>=mm(a)&&nm<=mm(b);return`<tr${cur?' class="cur"':""}><td>${i+1}</td><td>${ft(a)}–${ft(b)}</td><td><b>${c[0]}</b></td><td>${c[1]||"–"}</td></tr>`+(i===3?`<tr><td></td><td>12:10–13:20</td><td colspan="2" class="mu">午餐・午休</td></tr>`:"")}).join("")}</table>
+${ST.te?teForm(T,wd):""}<button class="pro" style="margin:8px 0 0" data-a="teTog">${ST.te?"完成編輯":"✏️ 編輯這天課表"}</button><details style="margin-top:8px"><summary>看整週課表</summary><div style="overflow-x:auto"><table><tr><th>節</th>${"一二三四五".split("").map(x=>`<th>${x}</th>`).join("")}</tr>${PT.map((t,i)=>`<tr><td>${i+1}</td>${T.map(d=>`<td>${d[i][0].replace("探究與實作A","探究").replace("彈性學習(多元延伸)","彈性")}</td>`).join("")}</tr>`).join("")}</table></div><div class="mu">目前預設是 8/31–9/4 的試用課表；正式課表出來後，用上方「編輯這天課表」逐天修改。</div></details></div>`;
+  const sc=SC.cats.filter(c=>c.s).map(c=>c.n),up=Array.from({length:120},(_,i)=>fk(addDays(noon(),i))).flatMap(k=>evs(k).filter(e=>isSch(e.c)).map(e=>[k,e]));
+  h+=`<div class="card"><h2>🗓️ 學校月曆・近期</h2>`+(up.slice(0,15).map(([k,e])=>`<div class="item row sp"><span><span class="chipc" style="background:${cat(e.c).c}"></span>${+k.slice(5,7)}/${+k.slice(8)} 週${WEEKDAY_CH[dateOf(k).getDay()]}　${esc(e.t)}</span><button class="x" data-a="delEv" data-k="${k}" data-id="${e.id}" data-rec="${e.rec||""}">✕</button></div>`).join("")||`<div class="mu">（沒有即將到來的學校行程）</div>`)+`
+<div class="fr" style="margin-top:10px"><input type="date" id="sd" value="${tk}"><select id="sc">${opt(sc)}</select><select id="sr"><option value="">不重複</option><option value="w">每週</option><option value="m">每月</option></select></div><div class="fr"><input type="text" id="st" placeholder="例：段考、校慶、繳費⋯" style="flex:1"></div>
+<div class="fr"><button class="pro" style="margin:0" data-a="addSch">＋ 加到學校月曆</button><button class="pro" style="margin:0" data-a="golife">📅 用月曆檢視</button></div></div>`;
+  h+=`<div class="card"><h2>🎨 日曆分類</h2><div class="mu">不同顏色代表不同分類；勾「學校類」會出現在學校月曆。</div>`+SC.cats.map((c,i)=>`<div class="item row sp"><span class="row"><input type="color" data-ch="catc" data-i="${i}" value="${c.c}"><b>${esc(c.n)}</b>${c.s?'<span class="mu">學校類</span>':""}</span>${i?`<button class="x" data-a="delCat" data-i="${i}">✕</button>`:""}</div>`).join("")+`
+<div class="fr" style="margin-top:8px"><input type="text" id="cn2" placeholder="新分類名稱" style="flex:1"><input type="color" id="cc2" value="#d9534f"><label style="flex-direction:row;align-items:center;gap:4px"><input type="checkbox" id="cs2">學校類</label></div><button class="pro" style="margin:0" data-a="addCat">＋ 新增分類</button></div>`;
+  h+=`<div class="card"><h2>🔗 學校連結</h2>`+LINKS.concat(SC.links).map(([n,u],i)=>{const c=i>=LINKS.length;return`<div class="row"><a class="lk" style="flex:1" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>${c?`<button class="x" data-a="delLink" data-i="${i-LINKS.length}">✕</button>`:""}</div>`}).join("")+`
+<div class="fr"><input type="text" id="ln" placeholder="名稱" style="width:110px"><input type="url" id="lu" placeholder="https://" style="flex:1"></div><button class="pro" style="margin:0" data-a="addLink">＋ 新增連結</button></div>`;
+  $("#s_life").innerHTML=h}
+
+/* ===================== 設定頁（新增部分） ===================== */
+function renderSet2(){
+  const kb=Math.round(Object.keys(localStorage).reduce((s,k)=>s+(localStorage.getItem(k)||"").length,0)/1024);
+  $("#setMine").innerHTML=ttl("Ordinatio","設定","日課、外觀、同步與備份")+`<div class="card"><h2>👤 個人化</h2><div class="fr"><label>首頁副標名字<input type="text" data-ch="cname" value="${esc(CFG.name||"")}"></label><label>月曆每週從<select data-ch="cwk">${opt([["0","週日"],["1","週一"]],CFG.wk)}</select></label><label>月曆預設檢視<select data-ch="cflt">${opt(FLT,CFG.flt)}</select></label></div></div>
+<div class="card"><h2>🗄️ 資料</h2><div class="mu">本機已用約 ${kb} KB（瀏覽器上限約 5 MB）。飲食照片最占空間，且<b>不會</b>同步到 GitHub，只留在這台裝置。</div><div class="fr"><button class="pro" data-a="clrP">清除全部飲食照片</button><button class="pro" data-a="clrH">清除健康紀錄</button></div></div>`}
+const FLT=[["all","全部"],["health","健康"],["lit","日課"],["life","生活"]];
+function renderAll(){renderLit();renderCal();renderWeek();renderHealth();renderLife();renderSet2();renderSet()}
+
+/* ===================== 事件 ===================== */
+const A={},CH={};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a],[data-pk]");if(!b)return;if(b.dataset.pk)return A.pk(b);const f=A[b.dataset.a];if(f)f(b)});
+document.addEventListener("change",e=>{const t=e.target,c=t.dataset&&t.dataset.ch;if(c&&CH[c])CH[c](t)});
+document.addEventListener("toggle",e=>{const t=e.target;if(t.dataset&&t.dataset.dt)ST[t.dataset.dt]=t.open},true);
+const rf=()=>{renderCal();renderWeek();renderBadges()};
+A.tab=b=>tab(b.dataset.s);
+A.pick=b=>{cs.sel=b.dataset.k;renderCal()};
+A.cm=b=>{const t=new Date(cs.y,cs.m+ +b.dataset.m,1);cs.y=t.getFullYear();cs.m=t.getMonth();renderCal()};
+A.pk=b=>{const k=b.dataset.pk;if(promo[k])delete promo[k];else promo[k]=1;savePromo();renderCal();renderLit()};
+A.seg=b=>{ST[b.dataset.g]=b.dataset.v;b.dataset.g==="ld"?renderLife():renderHealth()};
+A.hday=b=>{ST.hk=fk(addDays(dateOf(ST.hk),+b.dataset.m));renderHealth()};
+A.addMeal=async()=>{
+  const f=$("#mf").value.trim(),m=$("#hm");if(!f){m.textContent="請先填「吃什麼」";return}
+  const id=Date.now().toString(36),k=ST.hk,file=$("#mp").files[0];let ph=0;
+  if(file){try{PH[id]=await shrink(file);if(WS("lh-photos",PH))ph=1;else delete PH[id]}catch(e){delete PH[id]}}
+  hput(k,r=>r.meals.push({id,ty:$("#mt").value,f,p:$("#mpr").value,tm:$("#mtm").value,n:$("#mn").value.trim(),ph}));
+  renderHealth();rf();if(file&&!ph)$("#hm").textContent="照片太大或空間已滿，這筆沒有存照片"};
+A.delMeal=b=>{const id=b.dataset.id;hput(b.dataset.k,r=>r.meals=r.meals.filter(x=>x.id!==id));if(PH[id]){delete PH[id];WS("lh-photos",PH)}renderHealth();rf()};
+A.addEv=()=>{const t=$("#evt").value.trim();if(!t)return;addEvent(cs.sel,t,$("#evc").value,$("#evr").value);renderCal()};
+A.delEv=b=>{const k=b.dataset.k,id=b.dataset.id;if(b.dataset.rec){const r=SC.rec.find(x=>x.id===id);if(r){if(confirm("這是重複行程。\n按「確定」＝刪除整個系列；按「取消」＝只刪這一天。"))SC.rec=SC.rec.filter(x=>x.id!==id);else r.ex.push(k);sS()}}else{const r=SC.ev[k];if(r){r.l=r.l.filter(e=>e.id!==id);r.t=Date.now();sS()}}renderCal();renderLife()};
+A.addSch=()=>{const t=$("#st").value.trim(),k=$("#sd").value;if(!t||!k)return;addEvent(k,t,$("#sc").value,$("#sr").value);renderLife();renderCal()};
+A.golife=()=>{CFG.flt="life";sC();const d=new Date;cs.y=d.getFullYear();cs.m=d.getMonth();renderCal();tab("s_home")};
+A.gohealth=b=>{ST.hk=b.dataset.k;ST.hs="today";renderHealth();tab("s_hea")};
+A.gorec=()=>{ST.hs="rec";renderHealth();tab("s_hea")};
+A.wchk=b=>{const i=+b.dataset.i;hput(wkKey(),r=>{r.chk=r.chk||[0,0,0,0,0];r.chk[i]=r.chk[i]?0:1});renderWeek()};
+A.addCat=()=>{const n=$("#cn2").value.trim();if(!n||SC.cats.some(c=>c.n===n))return;SC.cats.push({n,c:$("#cc2").value,s:$("#cs2").checked?1:0});sS();renderLife();renderCal()};
+A.delCat=b=>{if(!confirm("刪除這個分類？（已用這個分類的行程會變灰色）"))return;SC.cats.splice(+b.dataset.i,1);sS();renderLife();renderCal()};
+A.addLink=()=>{const n=$("#ln").value.trim(),u=$("#lu").value.trim();if(!n||!/^https?:\/\//i.test(u))return;SC.links.push([n,u]);sS();renderLife()};
+A.delLink=b=>{SC.links.splice(+b.dataset.i,1);sS();renderLife()};
+A.clrP=()=>{if(confirm("清除全部飲食照片？文字紀錄會保留。")){PH={};WS("lh-photos",PH);renderAll()}};
+A.clrH=()=>{if(confirm("清除全部體重與飲食紀錄？無法復原（若已連線 GitHub，雲端另一份可能會再同步回來）。")){H={d:{}};sH();PH={};WS("lh-photos",PH);renderAll()}};
+CH.am=t=>{hput(ST.hk,r=>r.am=t.value?+t.value:"");rf()};
+CH.pm=t=>{hput(ST.hk,r=>r.pm=t.value?+t.value:"");rf()};
+CH.rv=t=>hput(wkKey(),r=>r.rv=t.value);
+CH.catc=t=>{SC.cats[+t.dataset.i].c=t.value;sS();renderLife();renderCal()};
+CH.cname=t=>{CFG.name=t.value;sC();$("#pro").textContent="pro "+t.value};
+CH.cwk=t=>{CFG.wk=+t.value;sC();rf()};
+CH.cflt=t=>{CFG.flt=t.value;sC();renderCal()};
+CH.flt=CH.cflt;
+
+function renderBadges(){
+  const ds=Object.keys(store).filter(k=>/^\d{4}-\d\d-\d\d$/.test(k)).sort();let best=0,run=0,prev=null,full=0;
+  ds.forEach(k=>{if(cnt(k)>0){run=prev&&fk(addDays(dateOf(prev),1))===k?run+1:1;prev=k;best=Math.max(best,run)}else prev=null;if(cnt(k)===5)full++});
+  const dk=f=>Object.keys(H.d).filter(k=>/^\d{4}-/.test(k)&&f(k)).length,md=dk(k=>meals(k).length),sd=dk(k=>sleepMin(k)!=null);
+  const B=[["🌱","連續 3 天",best>=3],["🔥","連續 7 天",best>=7],["🌿","連續 14 天",best>=14],["🕯️","連續 30 天",best>=30],["⛪","連續 100 天",best>=100],["✝️","全勤日 10 天",full>=10],["📿","全勤日 50 天",full>=50],["🍽️","飲食紀錄 7 天",md>=7],["🌟","飲食紀錄 30 天",md>=30],["😴","睡眠紀錄 7 天",sd>=7]];
+  $("#badges").innerHTML=`<h2>🏅 徽章</h2><div class="mu">最長連續 ${best} 天 ・ 全勤日 ${full} 天</div><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px">${B.map(([e,t,o])=>`<div style="text-align:center;font-size:11px;opacity:${o?1:.3};filter:${o?"none":"grayscale(1)"}"><div style="font-size:28px">${e}</div>${t}</div>`).join("")}</div>`}
+A.teTog=()=>{ST.te=!ST.te;renderLife()};
+A.teReset=()=>{if(confirm("還原成 8/31–9/4 試用課表？")){delete SC.tt;sS();renderLife()}};
+CH.tte=t=>{if(!SC.tt)SC.tt=JSON.parse(JSON.stringify(TT));SC.tt[+t.dataset.d][+t.dataset.p][+t.dataset.f]=t.value;sS()};
+CH.bt=t=>{hput(ST.hk,r=>{r.sl=r.sl||{};r.sl.b=t.value});$("#slr").textContent=slTxt(ST.hk);rf()};
+CH.wu=t=>{hput(ST.hk,r=>{r.sl=r.sl||{};r.sl.w=t.value});$("#slr").textContent=slTxt(ST.hk);rf()};
+A.rpt=()=>{const ks=rangeKeys("q"),rev=ks.slice().reverse(),w=H.d,fx=x=>x.replace(/var\(--g\)/g,"#2f7d4f").replace(/var\(--ln\)/g,"#ccc").replace(/var\(--mu\)/g,"#666");
+  const wr=rev.filter(k=>w[k]&&(w[k].am||w[k].pm)),sr=rev.filter(k=>sleepMin(k)!=null),fr=rev.filter(k=>meals(k).length);
+  const tb=(h,r)=>`<table border="1" cellspacing="0" cellpadding="4" style="border-collapse:collapse;font-size:12px;width:100%"><tr>${h.map(x=>`<th>${x}</th>`).join("")}</tr>${r.map(x=>`<tr>${x.map(y=>`<td>${y}</td>`).join("")}</tr>`).join("")}</table>`;
+  const html=`<!doctype html><meta charset="utf-8"><title>健康紀錄報告</title><body style="font-family:sans-serif;max-width:720px;margin:20px auto;padding:0 12px"><h2>健康紀錄報告</h2><div>${esc(CFG.name||"")}　期間 ${ks[0]} ～ ${ks[ks.length-1]}</div><div style="color:#666;font-size:12px">本人自行記錄，僅供醫療人員參考。</div><h3>體重（kg）</h3>${fx(wChart(ks))}${tb(["日期","清晨","睡前"],wr.map(k=>[k,w[k].am||"–",w[k].pm||"–"]))}<h3>睡眠</h3>${tb(["日期","就寢","起床","時數"],sr.map(k=>[k,w[k].sl.b,w[k].sl.w,(sleepMin(k)/60).toFixed(1)]))}<h3>飲食</h3>${tb(["日期","餐別","時間","內容","備註"],fr.flatMap(k=>meals(k).map(x=>[k.slice(5),x.ty,x.tm||"",esc(x.f),esc(x.n||"")])))}<script>setTimeout(()=>print(),400)<\/script>`;
+  const win=open("","_blank");if(!win){alert("請允許彈出視窗後再試一次");return}win.document.write(html);win.document.close()};
+
+/* ---- 設定 ---- */
+const COLS=[["","預設（依等級）"],["#C41E3A","🔴 殉道（紅）"],["#4682B4","🔵 聖母（藍）"],["#D4AF37","🟡 慶祝（金）"],["#F5F5F0","⚪ 白色"],["#3FA34D","🟢 綠色"],["#8B5FBF","🟣 紫色"],["#E8A0B4","🌸 玫瑰"]];
+const PALS=[["green","🌿 綠色系"],["blue","🌊 藍色系"],["black","🖤 黑色系"],["gray","🩶 灰色系"],["white","🤍 白色系"],["orange","🧡 橘黃色系"]];
+const rng=(a,b)=>Array.from({length:b-a+1},(_,i)=>a+i);
+const opt=(a,v)=>a.map(x=>{const[i,t]=Array.isArray(x)?x:[x,x];return`<option value="${i}"${String(i)===String(v)?" selected":""}>${t}</option>`}).join("");
+const dsel=id=>`<select id="${id}_m">${opt(rng(1,12).map(n=>[n,n+" 月"]))}</select> <select id="${id}_d">${opt(rng(1,31).map(n=>[n,n+" 日"]))}</select><div class="mu" id="${id}_p"></div>`;
+const dot=c=>okc(c)?` <span style="color:${c}">●</span>`:"";
+function applyPal(){const r=document.documentElement;if(CU.pal==="green")delete r.dataset.pal;else r.dataset.pal=CU.pal}
+function afterCU(){saveCU();for(const k in XF)delete XF[k];applyPal();renderSet();renderCal();renderHome()}
+function renderSet(){
+  const L=(o,f,t)=>Object.keys(o).sort().map(k=>`<div class="item row sp"><span>${k.replace("-","/")}　${f(k,o[k])}</span><button class="x" data-del="${t}:${k}">✕</button></div>`).join("")||`<div class="mu">（尚無）</div>`;
+  const nm=k=>SAINTS[k]?SAINTS[k].text:"（無聖人）";
+  $("#setLit").innerHTML=`<div class="card"><h2>✝️ 日課與外觀</h2><div class="mu" id="sm">設定只存在這個瀏覽器；要換裝置請用最下方的備份。</div></div>
+<div class="card"><h2>⭐ 個人升格</h2>${dsel("a")}
+<div class="fr"><label>等級<select id="ar">${opt(["紀念日","慶日","節日"])}</select></label><label>遇更高位階日（慶日／節日）<select id="am">${opt([["0","不移日（被取代）"],["1","移日（往後優先）"]])}</select></label><label>顏色<select id="ac">${opt(COLS)}</select></label></div>
+<button class="pro" data-add="promos">確定</button>${L(CU.promos,(k,v)=>`${nm(k)} → <b>${esc(v.rank)}</b>${v.move?"・移日":""}${dot(v.color)}`,"promos")}</div>
+<div class="card"><h2>⛪ 個人瞻禮（堂區主保等）</h2>${dsel("b")}
+<div class="fr"><label>瞻禮名稱<input type="text" id="bn" placeholder="例：堂區主保 ○○"></label><label>等級<select id="br">${opt([["節日","節日"],["慶日","慶日"],["紀念日","紀念日"],["","自由紀念"]])}</select></label></div>
+<div class="fr"><label>原當日聖人<select id="bo">${opt([["cover","覆蓋（不顯示）"],["move","移日（慶日／節日才有效）"]])}</select></label><label>本瞻禮遇更高位階日<select id="bm">${opt([["0","不移日"],["1","移日"]])}</select></label><label>顏色<select id="bc">${opt(COLS)}</select></label></div>
+<button class="pro" data-add="feasts">確定</button>${L(CU.feasts,(k,v)=>`<b>${esc(v.name)}</b> ${esc(v.rank||"自由紀念")}・原聖人${v.orig==="move"?"移日":"覆蓋"}${v.move?"・本身可移日":""}${dot(v.color)}`,"feasts")}</div>
+<div class="card"><h2>📝 幫聖人加註</h2>${dsel("c")}
+<div class="fr"><label>加註文字<input type="text" id="cn" placeholder="例：○○主保"></label></div>
+<button class="pro" data-add="adds">確定</button>${L(CU.adds,(k,v)=>`${nm(k)} ＋「${esc(v)}」`,"adds")}</div>
+<div class="card"><h2>🎨 色系</h2>${PALS.map(([v,t])=>`<button class="pal${CU.pal===v?" on":""}" data-pal="${v}">${t}</button>`).join("")}<div class="mu">綠色系會跟隨手機的淺色／深色模式，其他色系固定。</div></div>
+<div class="card"><h2>☁️ 跨裝置同步（GitHub）</h2><div class="mu" id="gs">${GH.id?`✅ 已連線${lastSync?"，上次同步 "+lastSync.toLocaleTimeString():""}`:"尚未連線"}</div>
+${GH.id?`<div class="fr"><button class="pro" data-act="ghs">立即同步</button><button class="pro" data-act="ghx">中斷連線</button></div>`:`<div class="mu" style="margin-top:6px">只在你的 GitHub Pages 網址能用。GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic)，<b>只勾選 gist</b>，建議設期限；產生後把 Token 貼到下面。每個裝置貼一次即可，資料會存在你帳號底下的私人 Gist。</div><input type="password" id="gt" placeholder="ghp_…" style="margin-top:8px;width:100%"><button class="pro" data-act="ghc">連線並同步</button>`}</div>
+<div class="card"><h2>💾 備份</h2><div class="mu">手動備份：舊裝置按「匯出」把文字存起來，新裝置貼進來按「匯入」。</div>
+<textarea id="bk" placeholder="匯出的內容會出現在這裡；匯入請貼在這裡" style="margin-top:8px"></textarea>
+<div class="fr"><button class="pro" data-act="exp">匯出</button><button class="pro" data-act="imp">匯入</button></div></div>`;
+  ["a","b","c"].forEach(id=>{const f=()=>{const k=`${p2($(`#${id}_m`).value)}-${p2($(`#${id}_d`).value)}`,s=SAINTS[k];$(`#${id}_p`).textContent=`${k.replace("-","/")}　`+(s?s.text+(s.rank?`（${s.rank}）`:"（自由紀念）"):"（這天沒有聖人）")};$(`#${id}_m`).onchange=$(`#${id}_d`).onchange=f;f()})}
+$("#setLit").onclick=e=>{
+  const t=e.target.closest("button");if(!t)return;
+  const msg=x=>{$("#sm").textContent=x};
+  if(t.dataset.del){const[ty,k]=t.dataset.del.split(":");delete CU[ty][k];return afterCU()}
+  if(t.dataset.pal){CU.pal=t.dataset.pal;return afterCU()}
+  if(t.dataset.add){
+    const ty=t.dataset.add,id={promos:"a",feasts:"b",adds:"c"}[ty],mo=+$(`#${id}_m`).value,da=+$(`#${id}_d`).value;
+    if(new Date(2024,mo-1,da).getMonth()!==mo-1)return msg("這個日期不存在");
+    const k=`${p2(mo)}-${p2(da)}`;
+    if(ty==="promos"){if(!SAINTS[k])return msg("這天沒有聖人可以升格，請改用「個人瞻禮」");CU.promos[k]={rank:$("#ar").value,move:$("#am").value==="1",color:$("#ac").value}}
+    else if(ty==="feasts"){const n=$("#bn").value.trim();if(!n)return msg("請輸入瞻禮名稱");const og=SAINTS[k],rk=$("#br").value;if($("#bo").value==="move"&&og&&og.rank&&sRank({rank:rk||null},k)>sRank(og,k))return msg("原當日聖人（"+og.rank+"）位階高於這個瞻禮，無法移走它；請提高瞻禮等級，或改選「覆蓋」");CU.feasts[k]={name:n,rank:$("#br").value,orig:$("#bo").value,move:$("#bm").value==="1",color:$("#bc").value}}
+    else{const n=$("#cn").value.trim();if(!n)return msg("請輸入加註文字");if(!SAINTS[k]&&!CU.feasts[k])return msg("這天沒有聖人可以加註");CU.adds[k]=n}
+    return afterCU()}
+  if(t.dataset.act==="exp"){const d=JSON.stringify({v:1,store,CU,promo,H,SC,CFG});$("#bk").value=d;try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([d],{type:"application/json"}));a.download="rikka-backup.json";a.click()}catch(x){}msg("已匯出：可複製下方文字存起來")}
+  if(t.dataset.act==="imp"){try{const o=JSON.parse($("#bk").value);if(o.store){store=o.store;save()}if(o.promo){promo=o.promo;savePromo()}if(o.CU)CU=Object.assign({promos:{},feasts:{},adds:{},pal:"green"},o.CU);if(o.H){H=o.H;sH(1)}if(o.SC){SC=o.SC;sS(1)}if(o.CFG){CFG=o.CFG;sC(1)}afterCU();renderAll();msg("已匯入")}catch(x){msg("格式不正確，匯入失敗")}}
+  const gm=x=>{const el=$("#gs");if(el)el.textContent=x};
+  if(t.dataset.act==="ghc"){const k=$("#gt").value.trim();if(!k)return gm("請先貼上 Token");gm("連線中…");ghConnect(k).then(()=>renderSet()).catch(x=>{GH.tok="";GH.id="";gm("連線失敗："+x.message)})}
+  if(t.dataset.act==="ghs"){gm("同步中…");ghSync(true).then(()=>gm("✅ 已同步 "+lastSync.toLocaleTimeString())).catch(x=>gm("同步失敗："+x.message))}
+  if(t.dataset.act==="ghx"){GH={tok:"",id:""};saveGH();renderSet()}
+};
+/* ---- GitHub Gist 跨裝置同步 ---- */
+let GH={tok:"",id:""},lastSync=null,gt;
+try{GH=Object.assign(GH,JSON.parse(localStorage.getItem("lh-gh")||"{}"))}catch(e){}
+const saveGH=()=>{try{localStorage.setItem("lh-gh",JSON.stringify(GH))}catch(e){}};
+const GFILE="rikka-data.json";
+const ghf=(path,o={})=>fetch("https://api.github.com"+path,{...o,headers:{Authorization:"Bearer "+GH.tok,Accept:"application/vnd.github+json","Content-Type":"application/json"}}).then(r=>{if(!r.ok)throw new Error(r.status===401?"Token 無效或已過期":"GitHub 回應 "+r.status);return r.json()});
+const payload=()=>JSON.stringify({v:1,t:Date.now(),store,CU,promo,H,SC,CFG});
+function merge(o){
+  let ch=false;
+  for(const k in(o.store||{})){const a=store[k],b=o.store[k];if(!a||(b.t||0)>(a.t||0)){store[k]=b;ch=true}}
+  if(o.CU&&(o.CU.t||0)>(CU.t||0)){CU=Object.assign({promos:{},feasts:{},adds:{},pal:"green"},o.CU);if(o.promo)promo=o.promo;ch=true}
+  for(const k in(o.H&&o.H.d||{})){const a=H.d[k],b=o.H.d[k];if(!a||(b.t||0)>(a.t||0)){H.d[k]=b;ch=true}}
+  for(const k in(o.SC&&o.SC.ev||{})){const a=SC.ev[k],b=o.SC.ev[k];if(!a||(b.t||0)>(a.t||0)){SC.ev[k]=b;ch=true}}
+  if(o.SC&&(o.SC.t||0)>(SC.t||0)){SC.cats=o.SC.cats||SC.cats;SC.links=o.SC.links||[];SC.rec=o.SC.rec||[];SC.tt=o.SC.tt;SC.t=o.SC.t;ch=true}
+  if(o.CFG&&(o.CFG.t||0)>(CFG.t||0)){CFG=o.CFG;ch=true}
+  return ch}
+async function ghSync(push){
+  if(!GH.id)return;
+  const g=await ghf("/gists/"+GH.id),f=g.files&&g.files[GFILE];
+  let txt=f?f.content:"{}";if(f&&f.truncated)txt=await(await fetch(f.raw_url)).text();
+  if(merge(JSON.parse(txt||"{}"))){save(1);saveCU(1);savePromo(1);sH(1);sS(1);sC(1);applyPal();for(const k in XF)delete XF[k];renderAll()}
+  if(push)await ghf("/gists/"+GH.id,{method:"PATCH",body:JSON.stringify({files:{[GFILE]:{content:payload()}}})});
+  lastSync=new Date()}
+function ghDirty(){if(!GH.id)return;clearTimeout(gt);gt=setTimeout(()=>ghSync(true).catch(()=>{}),3000)}
+async function ghConnect(tok){
+  GH.tok=tok;
+  const list=await ghf("/gists?per_page=100");
+  let g=list.find(x=>x.files&&x.files[GFILE]);
+  if(!g)g=await ghf("/gists",{method:"POST",body:JSON.stringify({description:"日課打卡資料（自動同步）",public:false,files:{[GFILE]:{content:payload()}}})});
+  GH.id=g.id;saveGH();await ghSync(true)}
+applyPal();renderSet();
+if(GH.id)ghSync(false).catch(()=>{});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&GH.id)ghSync(false).catch(()=>{})});
+$("#cy").innerHTML=opt(rng(2000,2100).map(y=>[y,y+" 年"]));$("#cm").innerHTML=opt(rng(0,11).map(i=>[i,i+1+" 月"]));
+$("#flt").innerHTML=opt(FLT);
+$("#cy").onchange=$("#cm").onchange=()=>{cs.y=+$("#cy").value;cs.m=+$("#cm").value;renderCal()};
+$("#pro").textContent="pro "+(CFG.name||"");
+renderAll();
+</script>
+</body>
+</html>
